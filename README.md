@@ -9,16 +9,9 @@ Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create pro
 
 ## Requirements
 
-Install these packages with install.packages():
-* [Tidyverse](https://www.tidyverse.org/)
-* [ggthemes](https://cran.r-project.org/web/packages/ggthemes/vignettes/ggthemes.html)
-* [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/RColorBrewer.pdf)
-* [knitr](https://cran.r-project.org/web/packages/knitr/knitr.pdf)
+Install these packages:
 
-`install.packages("tidyverse")`
-`install.packages("ggthemes")`
-`install.packages("RColorBrewer")`
-`install.packages("knitr")`
+`install.packages(c("tidyverse", "ggthemes", "RColorBrewer", "knitr"))`
 
 ## Data file
 
