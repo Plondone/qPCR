@@ -13,6 +13,10 @@ Install these packages:
 
 `install.packages(c("tidyverse", "ggthemes", "RColorBrewer", "knitr"))`
 
+##Load package
+
+`library(qpcrviia7)`
+
 ## Data file
 
 Import all the raw data as an excel file without any selections.
