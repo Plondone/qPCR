@@ -3,9 +3,7 @@ Package for qPCR analysis with Viia7 data
 
 ## Installation
 
-Download and install [git](https://git-scm.com/downloads) on your mac/pc.
-Open a new project in Rstudio and select version control.
-Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
+Download and install [git](https://git-scm.com/downloads) on your mac/pc. Open a new project in Rstudio and select version control. Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
 
 ## Requirements
 
@@ -13,9 +11,9 @@ Install these packages:
 
 `install.packages(c("tidyverse", "ggthemes", "RColorBrewer", "knitr"))`
 
-## Load package
+Installing qpcrviia7 has to be done in this way:
 
-`library(qpcrviia7)`
+`install.packages("PATH_TO_FILE", repos = FALSE, type = "source")`
 
 ## Data file
 
