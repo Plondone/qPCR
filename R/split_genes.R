@@ -7,7 +7,8 @@
 #' @export
 split_genes <- function(df) {
   hkg <- df %>%
-    filter(HKG == TRUE)
+    filter(HKG == TRUE) %>%
+    select(Primer, CT, Sample)
   assign('hkg', hkg, envir = .GlobalEnv)
   endog <- df %>%
     filter(HKG == FALSE)
