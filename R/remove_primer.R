@@ -2,7 +2,7 @@
 #'
 #' Remove bad primers
 #' @param df Dataframe
-#' @return
+#' @return df with primer removed
 #' @export
 remove_primer <- function(df, primer_name) {
   df <- df %>%

@@ -9,6 +9,9 @@ remove_primer(df, primer_name)
 \arguments{
 \item{df}{Dataframe}
 }
+\value{
+df with primer removed
+}
 \description{
 Remove bad primers
 }
