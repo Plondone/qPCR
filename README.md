@@ -15,10 +15,6 @@ Installing qpcrviia7 has to be done in this way:
 
 `install.packages("PATH_TO_FILE", repos = FALSE, type = "source")`
 
-## Load package
-
-`library(qpcrviia7)`
-
 ## Data file
 
 Import all the raw data as an excel file without any selections.
