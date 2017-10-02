@@ -4,8 +4,7 @@
 \alias{plot_pointrange}
 \title{Plot pointrange}
 \usage{
-plot_pointrange(df, x.var = "Sample", y.var = "DCt", col.var, ncol = 6,
-  nrow = 4)
+plot_pointrange(df, x.var, y.var, col.var, ncol = 6, nrow = 4)
 }
 \arguments{
 \item{df}{DCT df}

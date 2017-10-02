@@ -4,10 +4,10 @@
 \alias{plot_bar_per_gene}
 \title{Plots a barplot per gene}
 \usage{
-plot_bar_per_gene(df, gene, x.var = "Sample", y.var = "DCt", fill.var)
+plot_bar_per_gene(df, gene, x.var, y.var, fill.var)
 }
 \arguments{
-\item{df}{DCT df}
+\item{df}{endog df}
 
 \item{gene}{Gene to plot}
 

@@ -4,7 +4,7 @@
 \alias{plot_pointrange_per_gene}
 \title{Plots a pointrange per gene}
 \usage{
-plot_pointrange_per_gene(df, gene, x.var = "Sample", y.var = "DCt", col.var)
+plot_pointrange_per_gene(df, gene, x.var, y.var, col.var)
 }
 \arguments{
 \item{df}{DCT df}

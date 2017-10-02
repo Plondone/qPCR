@@ -4,10 +4,12 @@
 \alias{calculate_DCT}
 \title{Caclulate Delta CT}
 \usage{
-calculate_DCT(df, cols)
+calculate_DCT(df.endog, df.hkg, cols)
 }
 \arguments{
-\item{df}{hkg df}
+\item{df.endog}{endog df}
+
+\item{df.hkg}{hkg df}
 
 \item{cols}{Column names to transfer to DCT df}
 }

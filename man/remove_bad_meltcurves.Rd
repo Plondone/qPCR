@@ -6,9 +6,6 @@
 \usage{
 remove_bad_meltcurves()
 }
-\value{
-df
-}
 \description{
 Changes CT values of observations with more than one meltcurve to NA
 }

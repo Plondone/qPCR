@@ -4,11 +4,10 @@
 \alias{plot_bar}
 \title{Plot barplot}
 \usage{
-plot_bar(df, x.var = "Sample", y.var = "DCt", fill.var, ncol = 6,
-  nrow = 4)
+plot_bar(df, x.var, y.var, fill.var, ncol = 6, nrow = 4)
 }
 \arguments{
-\item{df}{DCT df}
+\item{df}{endog df}
 
 \item{x.var}{Variable to plot on x-axis}
 
