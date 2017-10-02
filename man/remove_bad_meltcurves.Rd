@@ -7,7 +7,7 @@
 remove_bad_meltcurves()
 }
 \value{
-qpcr df
+df
 }
 \description{
 Changes CT values of observations with more than one meltcurve to NA
