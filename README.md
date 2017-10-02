@@ -13,6 +13,9 @@ Install these packages:
 
 `install.packages(c("tidyverse", "ggthemes", "RColorBrewer", "knitr"))`
 
+Installing qpcrviia7 has to be done in this way:
+`install.packages("path_to_file", repos = FALSE, type = "source")`
+
 ## Load package
 
 `library(qpcrviia7)`
