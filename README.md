@@ -15,6 +15,11 @@ Install these packages with install.packages():
 * [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/RColorBrewer.pdf)
 * [knitr](https://cran.r-project.org/web/packages/knitr/knitr.pdf)
 
+`<install.packages("tidyverse")>`
+`<install.packages("ggthemes")>`
+`<install.packages("RColorBrewer")>`
+`<install.packages("knitr")>`
+
 ## Data file
 
 Import all the raw data as an excel file without any selections.
