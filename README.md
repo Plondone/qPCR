@@ -53,10 +53,10 @@ Basic steps of this workflow are:
 2. **Quality control**
   * filter_sample()
   * remove_sample()
-  * set_CT_min_max()
+  * split_genes()
+  * set_min_max_CT_endog()
   * list_double_meltcurves()
   * remove_bad_meltcurves()
-  * make_hkg()
   * qc_hkg()
   * remove_primer()
   * remove_CT()
