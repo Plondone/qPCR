@@ -13,7 +13,7 @@ Install these packages:
 
 `install.packages(c("tidyverse", "ggthemes", "RColorBrewer", "knitr"))`
 
-##Load package
+## Load package
 
 `library(qpcrviia7)`
 
