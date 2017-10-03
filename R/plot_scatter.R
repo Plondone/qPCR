@@ -12,7 +12,8 @@
 plot_scatter <- function(df, x.var, y.var, col.var, ncol = 6, nrow = 4) {
   ggplot(df, aes_string(x = x.var, y = y.var, col = col.var)) +
     geom_point(position = position_dodge(0.4)) +
-    facet_wrap(~Primer, ncol = ncol, nrow = nrow, scales = "free")
+    facet_wrap(~Primer, ncol = ncol, nrow = nrow, scales = "free") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
 }
 
 #' Plots a scatterplot per gene

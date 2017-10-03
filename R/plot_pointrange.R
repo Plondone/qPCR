@@ -15,7 +15,7 @@ plot_pointrange <- function(df, x.var, y.var, col.var, ncol = 6, nrow = 4) {
     ggplot(aes_string(x = x.var, y = y.var, col = col.var)) +
     stat_summary(fun.y = mean, geom = "point", position = position_dodge(0.5)) +
     stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "errorbar", width = 0.1, position = position_dodge(0.5)) +
-    facet_wrap(~Primer, ncol = ncol, nrow = nrow)
+    facet_wrap(~Primer, ncol = ncol, nrow = nrow, scales = "free")
 }
 
 #' Plots a pointrange per gene

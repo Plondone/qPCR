@@ -15,7 +15,8 @@ plot_bar <- function(df, x.var, y.var, fill.var, ncol = 6, nrow = 4) {
     ggplot(aes_string(x = x.var, y = y.var, fill = fill.var)) +
     stat_summary(fun.y = mean, geom = "bar", position = position_dodge(0.9)) +
     stat_summary(fun.data = mean_sdl, fun.args = list(mult = 1), geom = "errorbar", width = 0.1, position = position_dodge(0.9)) +
-    facet_wrap(~Primer, ncol = ncol, nrow = nrow)
+    facet_wrap(~Primer, ncol = ncol, nrow = nrow) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
 }
 
 #' Plots a barplot per gene
