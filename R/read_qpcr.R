@@ -10,5 +10,6 @@ read_qpcr <- function(x) {
   qpcr <- qpcr[, qpcr_colnames]
   real_colnames <- c("Position_well", "Sample", "Gene", "CT", "CT_threshold", "Tm1", "Tm2", "Tm3")
   colnames(qpcr) <- real_colnames
+  qpcr$CT <- as.numeric(qpcr$CT)
   print(qpcr)
 }
