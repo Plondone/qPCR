@@ -34,12 +34,12 @@ Target 4 | Sca1 | N
 
 Another annotation file holds informatation about the samples. This also has one column named "Sample" that resembles the names you gave the samples on the machine, I recommend to name these: Sample 1, Sample 2 ... The other columns contain specific information regarding your experiment. Don't put column names with spaces in them, always use an underscore! See the example here:
 
-Sample | Cell_type | Condition | Mouse | Passage
--------|-----------|-----------|-------|---------
-Sample 1 | TA | healthy | C57BL6-1 | NA
-Sample 2 | TA | healthy | C57BL6-2 | NA
-Sample 3 | TA | healthy | C57BL6-3 | NA
-Sample 4 | TA | healthy | C57BL6-4 | NA
+Sample | Cell_type | Condition | Mouse | Passage | ...
+-------|-----------|-----------|-------|--------- |------
+Sample 1 | TA | healthy | C57BL6-1 | NA | ...
+Sample 2 | TA | healthy | C57BL6-2 | NA | ...
+Sample 3 | TA | healthy | C57BL6-3 | NA | ...
+Sample 4 | TA | healthy | C57BL6-4 | NA | ...
 
 ## Workflow
 
@@ -54,7 +54,7 @@ Basic steps of this workflow are:
   * filter_sample()
   * remove_sample()
   * split_genes()
-  * set_min_max_CT_endog()
+  * set_min_max_CT()
   * list_double_meltcurves()
   * remove_bad_meltcurves()
   * qc_hkg()
@@ -65,11 +65,3 @@ Basic steps of this workflow are:
   * calculate_DCT()
   * plot_scatter()
   * plot_scatter_per_gene()
-  * plot_boxplot()
-  * plot_boxplot_per_gene()
-  * plot_violin()
-  * plot_violin_per_gene()
-  * plot_bar()
-  * plot_bar_per_gene()
-  * plot_pointrange()
-  * plot_pointrange_per_gene()
