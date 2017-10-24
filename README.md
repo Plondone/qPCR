@@ -25,7 +25,7 @@ Two annotation files need to be created.
 
 One for primers, this one should have two columns: one "Gene" column that resembles the names you gave to the primers. I recommend to use the basic names from the machine: Target 1, Target 2 ... The other columns are the gene names you want to analyze and if these are housekeeping genes or not.
 
-Gene | Primer | HKG
+Primer | Gene | HKG
 -----|--------|-----
 Target 1 | Psma3 | Y
 Target 2 | Rab35 | Y
