@@ -5,12 +5,12 @@
 #' @return endog Dataframe with only CT values from endogenous genes
 #' @return hkg Dataframe with only CT values from housekeeping genes
 #' @export
-split_genes <- function(df) {
+split_genes <- function(df, CT = "CT") {
   hkg <- df %>%
-    filter(HKG == TRUE) %>%
-    select(Primer, Avg_CT, Sample)
+    filter(HKG == "Y") %>%
+    select(Gene, CT, Sample)
   assign('hkg', hkg, envir = .GlobalEnv)
   endog <- df %>%
-    filter(HKG == FALSE)
+    filter(HKG == "N")
   assign('endog', endog, envir = .GlobalEnv)
 }

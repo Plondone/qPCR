@@ -9,11 +9,18 @@
 #' @param nrow Amount of rows
 #' @return Scatter plot
 #' @export
-plot_scatter <- function(df, x.var, y.var, col.var, ncol = 6, nrow = 4) {
+plot_scatter <- function(df, x.var, y.var, col.var, ncol = 6, nrow = 4, theme = 6) {
   ggplot(df, aes_string(x = x.var, y = y.var, col = col.var)) +
-    geom_point(position = position_dodge(0.4)) +
-    facet_wrap(~Primer, ncol = ncol, nrow = nrow, scales = "free") +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    stat_summary(fun.y = mean, geom = "crossbar", col = "black", size = 1, ymin = 0, ymax = 0, position = position_dodge(0.4)) +
+    geom_dotplot(aes(fill = col.var), binaxis = "y", stackdir = "center", dotsize = 1, position = position_dodge(0.4)) +
+    facet_wrap(~Gene, ncol = ncol, nrow = nrow, scales = "free") +
+    theme_bw(base_size= theme) +
+    theme(panel.border = element_blank(),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          axis.line = element_line(colour = "black"),
+          axis.title.x = element_blank(),
+          axis.text.x = element_text(angle = 45, hjust = 1))
 }
 
 #' Plots a scatterplot per gene
@@ -23,10 +30,33 @@ plot_scatter <- function(df, x.var, y.var, col.var, ncol = 6, nrow = 4) {
 #' @param y.var Variable to plot on y-axis
 #' @param col.var Variable to plot colours
 #' @export
-plot_scatter_per_gene <- function(df, gene, x.var, y.var, col.var) {
-  df %>%
-    group_by_(col.var) %>%
-    filter(Primer == gene) %>%
-    ggplot(aes_string(x = x.var, y = y.var, col = col.var)) +
-    geom_point(position = position_dodge(0.3))
+plot_scatter_per_gene <- function(df, gene, x.var, y.var, col.var = FALSE) {
+  if (col.var == FALSE) {
+    df %>%
+      #group_by_(col.var) %>%
+      filter(Gene == gene) %>%
+      ggplot(aes_string(x = x.var, y = y.var, col = col.var)) +
+      stat_summary(fun.y = mean, geom = "crossbar", col = "black", size = 1, ymin = 0, ymax = 0) +
+      geom_dotplot(aes(fill = col.var), binaxis = "y", stackdir = "center", dotsize = 1.5) +
+      theme_bw(base_size=14) +
+      theme(panel.border = element_blank(),
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank(),
+            axis.line = element_line(colour = "black"),
+            axis.title.x = element_blank())
+  }
+  else {
+    df %>%
+      group_by_(col.var) %>%
+      filter(Gene == gene) %>%
+      ggplot(aes_string(x = x.var, y = y.var, col = col.var)) +
+      stat_summary(fun.y = mean, geom = "crossbar", col = "black", size = 1, ymin = 0, ymax = 0, position = position_dodge(0.3)) +
+      geom_dotplot(aes(fill = col.var), binaxis = "y", stackdir = "center", dotsize = 1.5, position = position_dodge(0.3)) +
+      theme_bw(base_size=14) +
+      theme(panel.border = element_blank(),
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank(),
+            axis.line = element_line(colour = "black"),
+            axis.title.x = element_blank())
+  }
 }

@@ -7,6 +7,6 @@
 list_double_meltcurves <- function(df) {
 df %>%
   arrange(Primer) %>%
-  select(Primer, CT, Tm1, Tm2, Tm3) %>%
+  select(Gene, CT, Tm1, Tm2, Tm3) %>%
   filter(!is.na(Tm2))
 }

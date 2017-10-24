@@ -6,9 +6,10 @@
 #' @param max Maximum CT value
 #' @return qpcr dataframe
 #' @export
-set_min_max_CT_endog <- function(min = 10, max = 40) {
-  qpcr$CT[qpcr$CT < min] <- NA
-  qpcr$CT[is.na(qpcr$CT)] <- max
-  qpcr$CT[qpcr$CT > max] <- max
-  assign('qpcr', qpcr, envir=.GlobalEnv)
+set_min_max_CT <- function(df, min = 10, max = 40) {
+  df[["CT"]][df[["CT"]] < min] <- NA
+  df[["CT"]][is.na(df[["CT"]])] <- max
+  df[["CT"]][df[["CT"]] > max] <- max
+  df
+  #assign("endog", df, envir=.GlobalEnv)
 }

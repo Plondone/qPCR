@@ -8,7 +8,7 @@ qc_hkg <- function(df) {
   a <- df %>%
     ggplot(aes(Sample, CT)) +
     geom_point() +
-    facet_wrap(~Primer) +
+    facet_wrap(~Gene) +
     theme(axis.text.x = element_text(angle = 90)) +
     ggtitle("CT values HKG")
   print(a)
@@ -16,13 +16,13 @@ qc_hkg <- function(df) {
   b <- df %>%
     ggplot(aes(CT))+
     geom_histogram(binwidth = 1) +
-    facet_wrap(~Primer) +
+    facet_wrap(~Gene) +
     theme(axis.text.x = element_text(angle = 90)) +
     ggtitle("CT values HKG")
   print(b)
 
   c <-  df %>%
-    ggplot(aes(Primer, CT)) +
+    ggplot(aes(Gene, CT)) +
     geom_boxplot(outlier.shape = NA) +
     geom_jitter()
   ggtitle("CT values HKG")

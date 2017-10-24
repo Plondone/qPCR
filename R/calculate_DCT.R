@@ -8,12 +8,12 @@
 #' @export
 calculate_DCT <- function(df.endog, df.hkg, cols) {
   endog <- df.endog %>%
-    select(Primer, CT, Sample, cols) %>%
+    select(Gene, CT, Sample, cols) %>%
     group_by(Sample) %>%
     left_join(df.hkg, by = "Sample") %>%
     mutate(CT = replace(CT, is.na(CT_avg_hkg), NA)) %>%
     mutate(DCt = CT_avg_hkg - CT) %>%
     mutate(rel_expr = 2^DCt) %>%
-    arrange(Primer)
+    arrange(Gene)
   assign('endog', endog, envir = .GlobalEnv)
 }
