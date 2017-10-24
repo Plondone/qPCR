@@ -27,10 +27,10 @@ One for primers, this one should have two columns: one "Gene" column that resemb
 
 Gene | Primer | HKG
 -----|--------|-----
-Target 1 | Psma3 | TRUE
-Target 2 | Rab35 | TRUE
-Target 3 | Rpl13a | TRUE
-Target 4 | Sca1 | FALSE
+Target 1 | Psma3 | Y
+Target 2 | Rab35 | Y
+Target 3 | Rpl13a | Y
+Target 4 | Sca1 | N
 
 Another annotation file holds informatation about the samples. This also has one column named "Sample" that resembles the names you gave the samples on the machine, I recommend to name these: Sample 1, Sample 2 ... The other columns contain specific information regarding your experiment. Don't put column names with spaces in them, always use an underscore! See the example here:
 
