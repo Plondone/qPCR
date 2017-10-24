@@ -13,7 +13,7 @@ Install these packages:
 
 Installing qpcrviia7 has to be done in this way:
 
-`install.packages("PATH_TO_FILE", repos = FALSE, type = "source")`
+`install.packages("PATH_TO_FILE", repos = NULL, type = "source")`
 
 ## Data file
 
