@@ -37,7 +37,7 @@ Target 2 | Rab35 | Y
 Target 3 | Rpl13a | Y
 Target 4 | Sca1 | N
 
-Another annotation file holds informatation about the samples. This also has one column named **Sample** that resembles the names you gave the samples on the machine, I recommend to name these: Sample 1, Sample 2 ... The other columns contain specific information regarding your experiment. See the example here:
+Another annotation file holds informatation about the samples. This also has one column named **Sample** that resembles the names you gave the samples on the machine, I recommend to name these: Sample 1, Sample 2 ... The other columns contain specific information regarding your experiment. Also specify if you  used a blanc, this will make it easy for to inscept and remove blancs. See the example here:
 
 Sample | Blanc |Cell_type | Condition | Mouse | Passage | ...
 -------|-------|----------|-----------|-------|--------- |------
