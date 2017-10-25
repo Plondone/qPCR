@@ -7,7 +7,7 @@ With devtools:
 
 `devtools::install_github("https://github.com/SCIL-leuven/qpcrviia7.git")`
 
-From source (if you want to help develop the package)":
+Or from source (if you want to help develop the package)":
 Download and install [git](https://git-scm.com/downloads) on your mac/pc. Open a new project in Rstudio and select version control. Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
 
 `install.packages("PATH_TO_FILE", repos = NULL, type = "source")`
@@ -20,7 +20,7 @@ Install these packages:
 
 ## Data file
 
-Import all the raw data as an excel file without any selections.
+Import all the raw data as an excel file without any selections. In the basic template on the Viia7 genes are called **Target** and samples **Sample**. You call the first gene *Target 1*, the second *Target 2* and so on. You do the same for the samples.
 
 ## Annotation files
 
