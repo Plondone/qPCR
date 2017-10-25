@@ -3,11 +3,11 @@ Package for qPCR analysis with Viia7 data
 
 ## Installation
 
-With devtools:
+* With devtools (when you only need the package):
 
 `devtools::install_github("https://github.com/SCIL-leuven/qpcrviia7.git")`
 
-Or from source (if you want to help develop the package)":
+* From source (if you want to help develop the package or you need example annotation and markdown files)":
 Download and install [git](https://git-scm.com/downloads) on your mac/pc. Open a new project in Rstudio and select version control. Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
 
 `install.packages("PATH_TO_FILE", repos = NULL, type = "source")`
