@@ -7,7 +7,7 @@ Package for qPCR analysis with Viia7 data
 
   `devtools::install_github("https://github.com/SCIL-leuven/qpcrviia7.git")`
 
-* From source (if you want to help develop the package or you need example annotation and markdown files)":
+* From source (if you want to help develop the package or you need example annotation and markdown files):
   1. Download and install [git](https://git-scm.com/downloads) on your mac/pc. 
   2. Open a new project in Rstudio and select version control. [step-by-step manual](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) 
   3. Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
@@ -28,9 +28,9 @@ Import all the raw data as an excel file without any selections. In the basic te
 
 Two annotation files need to be created.
 
-One for primers, this one should have two columns: one **Primer** column that resembles the names you gave to the primers. I recommend to use the basic names from the machine: Target 1, Target 2 ... The other columns are the gene names you want to analyze and if these are housekeeping genes or not.
+One for primers, this one should have two columns: one **Target** column that resembles the names you gave to the primers. I recommend to use the basic names from the machine: Target 1, Target 2 ... The other columns are the gene names you want to analyze and if these are housekeeping genes or not.
 
-Primer | Gene | HKG
+Target | Gene | HKG
 -----|--------|-----
 Target 1 | Psma3 | Y
 Target 2 | Rab35 | Y
