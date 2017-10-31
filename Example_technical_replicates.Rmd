@@ -1,33 +1,50 @@
 ---
-title: "qPCR validations single-cell 1moWTB"
-author: "Jordi Camps"
-date: "3 oktober 2017"
+title: "MC technical replicates"
+author: ".."
+date: "12 oktober 2017"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(qpcrviia7)
+#library(qpcrviia7)
 library(readxl)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(ggthemes)
 library(RColorBrewer)
+library(Hmisc)
 ```
 
 ## Import and prepare data
 ```{r}
 #Import data
-qpcr <- read_qpcr("Data/2017-09-18 Smartseq2 Hanne.xlsx")
+qpcr <- read_qpcr("Data/2017-10-05 FAP-C2C12-Muscle qPCR validation MC.xls")
 #Import annotation
-ann_samples <- read_annotation("Data/Annotations_samples.xlsx")
-ann_genes <- read_annotation("Data/Annotations_primers.xlsx")
-
-
-#Merge and tidy
-join_and_clean_qpcr(qpcr)
+ann_samples <- read_annotation("Data/Annotations_samples_124839_technical_replicates.xlsx")
+ann_genes <- read_annotation("Data/Annotations_primers_124839_technical_replicates.xlsx")
 ```
+
+###Technical replicates
+#List technical replicates above sd of 0.4
+```{r}
+qpcr$CT <- as.numeric(qpcr$CT)
+qpcr <- qpcr %>%
+  group_by(Target, Sample) %>%
+  summarise(Avg_CT = mean(CT, na.rm = TRUE), Sd_CT = sd(CT, na.rm = TRUE), 
+            Avg_Tm1 = mean(Tm1, na.rm = TRUE), Sd_Tm1 = sd(Tm1, na.rm = TRUE),
+            Avg_Tm2 = mean(Tm2, na.rm = TRUE), Sd_Tm2 = sd(Tm2, na.rm = TRUE)
+            ) %>%
+  ungroup()
+qpcr %>%
+  filter(Sd_CT > 0.4)
+```
+
+
+
+
+
 
 ## Quality control
 ### Primers and samples
@@ -42,60 +59,72 @@ ggplot(qpcr, aes(Sample, CT)) +
   ggtitle("CT values per sample")
 
 #Plot CT values for primers
-ggplot(qpcr, aes(Primer, CT)) +
+ggplot(qpcr, aes(Gene, CT)) +
   geom_boxplot() +
   theme(axis.text.x = element_text(angle = 90)) +
   ggtitle("CT values per primer")
 
 #Filter sample
-filter_sample(qpcr, "Sample 11")
-filter_sample(qpcr, "Sample 1")
-filter_sample(qpcr, "Sample 4")
-filter_sample(qpcr, "Sample 16")
 ```
+
 
 ### Remove blanc and split endogenous and housekeeping genes
 ```{r}
 #Remove blanc
-remove_sample(qpcr, "Sample 16")
+remove_sample(qpcr, "Sample 23")
 hist(qpcr$CT, main = "CT after removal blanc")
+```
+
+
+```{r}
+#Set min and max ct value
+set_min_max_CT_endog(10, 40)
+hist(qpcr$CT, main = "CT after set baseline")
+```
+
+
+
+
+#Merge and tidy
+```{r}
+join_and_clean_qpcr(qpcr)
+```
+
+
+
+qpcr$Avg_CT[qpcr$Sd_CT > 0.4] <- NA
+
+
+
 
 #Split hkg from endogenous
+```{r}
 split_genes(qpcr)
 ```
 
+
 ### Endogenous genes
 ```{r}
-#Set min and max ct value
-set_min_max_CT_endog(9, 40)
-hist(endog$CT, main = "CT after set baseline")
-
 #Double meltcurve peaks
 list_double_meltcurves(endog)
 remove_bad_meltcurves()
 ```
 
+
+
+
 ### Housekeeping genes
 ```{r}
 #QC on housekeeping genes
 qc_hkg(hkg)
+```
 
 #Remove Rab35
-hkg <- remove_primer(hkg, "Rab35")
+```{r}
+hkg <- remove_primer(hkg, "Rpl13a")
+```
 
-#Remove CT values above or below a specific threshold
-hkg <- hkg %>%
-  spread(Primer, CT) %>%
-  mutate(Rpl13a = replace(Rpl13a, Rpl13a > 30, NA)) %>%
-  gather(Primer, CT, -Sample)
-qc_hkg(hkg)
-
-hkg <- hkg %>%
-  spread(Primer, CT) %>%
-  mutate(Psma3 = replace(Psma3, Psma3 > 15, NA)) %>%
-  gather(Primer, CT, -Sample)
-qc_hkg(hkg)
-
+```{r}
 #Take geometric average all housekeeping genes
 mean_hkg <- calculate_mean_hkg(hkg)
 qc_mean_hkg(hkg)
@@ -130,7 +159,6 @@ plot_scatter(endog, x.var = "Cell_type", y.var = "rel_expr", col.var = "Conditio
   labs(title = "Scatterplot all genes", y = "Relative expression", x = "Cell type")
 plot_pointrange(endog, x.var = "Cell_type", y.var = "rel_expr", col.var = "Condition") +
   labs(title = "Pointrange all genes", y = "Relative expression", x = "Cell type")
-plot_bar_per_gene(endog, "Dcn", x.var = "Cell_type", y.var = "rel_expr", col.var = "Condition") +
+plot_bar_per_gene(endog, "Dcn", x.var = "Cell_type", y.var = "rel_expr", fill.var = "Condition") +
   labs(title = "Decorin", y = "Relative expression", x = "Cell type")
 ```
-
