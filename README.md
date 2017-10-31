@@ -17,7 +17,7 @@ Package for qPCR analysis with Viia7 data
 
 Install these packages:
 
-`install.packages(c("tidyverse", "ggthemes", "RColorBrewer", "knitr"))`
+`install.packages(c("tidyverse", "ggthemes", "RColorBrewer", "knitr", "Hmisc"))`
 
 ## Data file
 
