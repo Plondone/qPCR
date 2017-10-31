@@ -4,9 +4,9 @@
 #' @param df qpcr df
 #' @return Tibble
 #' @export
-list_double_meltcurves <- function(df) {
+list_double_meltcurves <- function(df, CT) {
 df %>%
-  arrange(Primer) %>%
-  select(Gene, CT, Tm1, Tm2, Tm3) %>%
+  arrange(Gene) %>%
+  select_(CT, "Tm1", "Tm2") %>%
   filter(!is.na(Tm2))
 }

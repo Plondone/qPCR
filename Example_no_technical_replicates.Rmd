@@ -66,7 +66,7 @@ split_genes(qpcr)
 ### Endogenous genes
 ```{r}
 #Set min and max ct value
-endog <- set_min_max_CT( endog, 10, 40)
+endog <- set_min_max_CT(endog, 10, 40)
 hist(endog$CT, main = "CT after set baseline")
 
 #Double meltcurve peaks

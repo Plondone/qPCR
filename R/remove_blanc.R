@@ -4,7 +4,7 @@
 #' @param df qpcr file
 #' @return qpcr dataframe
 #' @export
-remove_sample <- function(df) {
+remove_blanc <- function(df) {
   df <- df %>%
     filter(Blanc != "Y")
 }

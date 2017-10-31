@@ -6,5 +6,5 @@
 #' @export
 remove_primer <- function(df, primer_name) {
   df <- df %>%
-    filter(Primer != primer_name)
+    filter(Gene != primer_name)
 }
