@@ -8,5 +8,4 @@
 remove_sample <- function(df, sample_name) {
   df <- df %>%
     filter(Sample != sample_name)
-  assign("qpcr", df, envir = .GlobalEnv)
 }

@@ -26,69 +26,57 @@ ann_samples <- read_annotation("Data/Annotations_samples_124839_technical_replic
 ann_genes <- read_annotation("Data/Annotations_primers_124839_technical_replicates.xlsx")
 ```
 
-###Technical replicates
-#List technical replicates above sd of 0.4
+## Technical replicates
+### List technical replicates above sd of 0.4
 ```{r}
-qc_tech_rep(qpcr)
+list_bad_tech_rep(qpcr)
+```
+
+###Save by saving this function into qpcr dataframe
+```{r}
+qpcr <- qc_tech_rep(qpcr)
 ```
 
 
-
-
+## Merge and tidy
+```{r}
+join_and_clean_qpcr(qpcr)
+```
 
 
 ## Quality control
 ### Primers and samples
 ```{r}
 par(mfrow=c(1,1))
-hist(qpcr$CT, main = "CT values")
+hist(qpcr$Avg_CT, main = "CT values")
 
 #Plot CT values for samples
-ggplot(qpcr, aes(Sample, CT)) +
+ggplot(qpcr, aes(Sample, Avg_CT)) +
   geom_boxplot() +
   theme(axis.text.x = element_text(angle = 90)) +
   ggtitle("CT values per sample")
 
 #Plot CT values for primers
-ggplot(qpcr, aes(Gene, CT)) +
+ggplot(qpcr, aes(Gene, Avg_CT)) +
   geom_boxplot() +
   theme(axis.text.x = element_text(angle = 90)) +
   ggtitle("CT values per primer")
-
-#Filter sample
 ```
 
 
-### Remove blanc and split endogenous and housekeeping genes
+### Remove blanc and 
 ```{r}
-#Remove blanc
-remove_sample(qpcr, "Sample 23")
+qpcr <- remove_blanc(qpcr)
 hist(qpcr$CT, main = "CT after removal blanc")
 ```
 
-
+### Set min and max CT
 ```{r}
-#Set min and max ct value
 set_min_max_CT_endog(10, 40)
 hist(qpcr$CT, main = "CT after set baseline")
 ```
 
-
-
-
-#Merge and tidy
-```{r}
-join_and_clean_qpcr(qpcr)
-```
-
-
-
-qpcr$Avg_CT[qpcr$Sd_CT > 0.4] <- NA
-
-
-
-
-#Split hkg from endogenous
+### Split housekeeping genes and endogeneous genes
 ```{r}
 split_genes(qpcr)
 ```
