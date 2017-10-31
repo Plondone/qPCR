@@ -1,13 +1,13 @@
 ---
 title: "MC technical replicates"
-author: ".."
-date: "12 oktober 2017"
+author: "Jordi Camps"
+date: "31 oktober 2017"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-#library(qpcrviia7)
+library(qpcrviia7)
 library(readxl)
 library(dplyr)
 library(tidyr)
@@ -111,13 +111,13 @@ hkg <- remove_primer(hkg, "Rpl13a")
 ### Calculate average of total HKG
 ```{r}
 mean_hkg <- calculate_mean_hkg(hkg)
-qc_mean_hkg(hkg)
+qc_mean_hkg(mean_hkg)
 ```
 
 ### Remove outliers
 ```{r}
 mean_hkg$CT_avg_hkg <- remove_outliers(mean_hkg$CT_avg_hkg)
-qc_mean_hkg(hkg)
+qc_mean_hkg(mean_hkg)
 mean_hkg$CT_avg_hkg <- remove_outliers(mean_hkg$CT_avg_hkg)
 ```
 
@@ -129,10 +129,8 @@ calculate_DCT(endog, mean_hkg, cols = c("Cell_type", "Condition", "Mouse"))
 
 ## Plot Delta CT
 ```{r}
-plot_scatter(endog, x.var = "Cell_type", y.var = "DCt", col.var = "Condition") +
-  labs(title = "Scatterplot all genes", y = "Delta CT", x = "Cell type")
-plot_scatter_per_gene(endog, "Dcn", x.var = "Cell_type", y.var = "DCt", col.var = "Condition") +
-  labs(title = "Scatterplot Decorin", y = "Delta CT", x = "Cell type")
+plot_scatter(endog, x.var = "Cell_type", y.var = "DCt", col.var = "Condition") 
+plot_scatter_per_gene(endog, "Dcn", x.var = "Cell_type", y.var = "DCt", col.var = "Condition") 
 ```
 
 ## Plot relative expression

@@ -5,7 +5,7 @@
 #' @return mean_hkg df
 #' @export
 calculate_mean_hkg <- function(df) {
-  mean_hkg <- hkg %>%
+  hkg %>%
     group_by(Sample) %>%
     summarise(CT_avg_hkg = mean(CT, na.rm = TRUE))#select housekeeping genes and tidy file per sample
 }

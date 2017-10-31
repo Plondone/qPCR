@@ -4,7 +4,7 @@
 \alias{list_double_meltcurves}
 \title{Filter for primers with double meltcurve peaks}
 \usage{
-list_double_meltcurves(df)
+list_double_meltcurves(df, CT)
 }
 \arguments{
 \item{df}{qpcr df}

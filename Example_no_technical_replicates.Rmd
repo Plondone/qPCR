@@ -1,7 +1,7 @@
 ---
-title: "Muscle_progenitors_single_cell_validations"
+title: "Example without technical replicates"
 author: "Jordi Camps"
-date: "October 24, 2017"
+date: "October 31, 2017"
 output: html_document
 ---
 
@@ -24,7 +24,7 @@ library(RColorBrewer)
 qpcr <- read_qpcr("Data/2017-09-20 124839 FAP-C2C12-Muscle qPCR validation MC.xls", sheet = 3)
 #Import annotation
 ann_samples <- read_annotation("Data/Annotations_124839_samples.xlsx")
-ann_genes <- read_annotation("/home/jordi/stack/PhD/Results/Muscle progenitors/Validations/Decorin (Marlies project)/Annotations_124839_primers.xlsx")
+ann_genes <- read_annotation("Data/Annotations_124839_primers.xlsx")
 
 
 #Merge and tidy
@@ -50,10 +50,9 @@ ggplot(qpcr, aes(Gene, CT)) +
   ggtitle("CT values per primer")
 ```
 
-#### Remove blanc and split endogenous and housekeeping genes
+#### Remove blanc
 ```{r}
-#Remove blanc
-remove_sample(qpcr, "Sample 23")
+qpcr <- remove_blanc(qpcr)
 hist(qpcr$CT, main = "CT after removal blanc")
 ```
 
@@ -70,7 +69,7 @@ endog <- set_min_max_CT(endog, 10, 40)
 hist(endog$CT, main = "CT after set baseline")
 
 #Double meltcurve peaks
-list_double_meltcurves(endog)
+list_double_meltcurves(endog, CT = "CT")
 remove_bad_meltcurves()
 ```
 
@@ -89,7 +88,7 @@ remove_primer(endog, "Rpl13a")
 #### Take geometric average all housekeeping genes
 ```{r}
 mean_hkg <- calculate_mean_hkg(hkg)
-qc_mean_hkg(hkg)
+qc_mean_hkg(mean_hkg)
 ```
 
 #### Remove outliers
@@ -107,13 +106,11 @@ calculate_DCT(endog, mean_hkg, cols = c("Cell_type", "Condition", "Mouse"))
 ### Plot Delta CT
 #### Scatter plot
 ```{r}
-plot_scatter(endog, x.var = "Cell_type", y.var = "DCt", col.var = "Condition") +
-  ggsave("Plots/all_genes.tiff", width = 30, height = 21, units = "cm")
+plot_scatter(endog, x.var = "Cell_type", y.var = "DCt", col.var = "Condition")
 plot_scatter_per_gene(endog, "Dcn", x.var = "Cell_type", y.var = "DCt", col.var = "Condition", theme = 18) +
   labs(y = "Delta CT") +
   scale_fill_discrete(name = "Cell type") +
-  scale_x_discrete(labels = c("C2C12 GFP" = "C2C12", "FAP" = "FAP", "TA" = "Tibialis\nanterior")) +
-  ggsave("Plots/Dcn_muscle_progenitors.tiff", width = 15, height = 10, units = "cm")
+  scale_x_discrete(labels = c("C2C12 GFP" = "C2C12", "FAP" = "FAP", "TA" = "Tibialis\nanterior"))
 ```
 
 
@@ -126,25 +123,3 @@ plot_scatter_per_gene(endog, "Dcn", x.var = "Cell_type", y.var = "rel_expr", col
   scale_fill_discrete(name = "Cell type") +
   scale_x_discrete(labels = c("C2C12 GFP" = "C2C12", "FAP" = "FAP", "TA" = "Tibialis\nanterior"))
 ```
-
-
-plot_bar(endog, x.var = "Cell_type", y.var = "DCt", fill.var = "Condition") +
-  labs(title = "Barplot all genes", y = "Delta CT", x = "Cell type")
-plot_bar_per_gene(endog, "Dcn", "Cell_type", y.var = "DCt", fill.var = "Condition") +
-  labs(title = "Barplot Decorin", y = "Delta CT", x = "Cell type")
-plot_pointrange(endog, x.var = "Cell_type", y.var = "DCt", col.var = "Condition") +
-  labs(title = "Pointrange all genes", y = "Delta CT", x = "Cell type")
-plot_pointrange_per_gene(endog, "Dcn", x.var = "Cell_type", y.var = "DCt", col.var = "Condition") +
-  labs(title = "Pointrange Decorin", y = "Delta CT", x = "Cell type")
-```
-
-## Plot relative expression
-
-plot_scatter(endog, x.var = "Cell_type", y.var = "rel_expr", col.var = "Condition") +
-  labs(title = "Scatterplot all genes", y = "Relative expression", x = "Cell type")
-plot_pointrange(endog, x.var = "Cell_type", y.var = "rel_expr", col.var = "Condition") +
-  labs(title = "Pointrange all genes", y = "Relative expression", x = "Cell type")
-plot_bar_per_gene(endog, "Dcn", x.var = "Cell_type", y.var = "rel_expr", fill.var = "Condition") +
-  labs(title = "Decorin", y = "Relative expression", x = "Cell type")
-```
-

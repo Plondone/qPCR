@@ -4,7 +4,7 @@
 \alias{set_min_max_CT}
 \title{Set minimum and maximum CT value}
 \usage{
-set_min_max_CT(df, min = 10, max = 40)
+set_min_max_CT(df, CT, min = 10, max = 40)
 }
 \arguments{
 \item{df}{Dataframe with raw CT values and column specifiying housekeeping genes}
