@@ -57,6 +57,8 @@ Basic steps of this workflow are:
 1. **Read and prepare files**
   * read_qpcr()
   * read_annotation()
+  * list_bad_tech_rep()
+  * qc_tech_rep()
   * join_and_clean_qpcr()
 2. **Quality control**
   * filter_sample()
@@ -69,7 +71,8 @@ Basic steps of this workflow are:
   * remove_primer()
   * remove_CT()
   * qc_mean_hkg()
-2. **Calculate Detla CT**
+  * remove_outlier()
+3. **Calculate Delta CT**
   * calculate_DCT()
   * plot_scatter()
   * plot_scatter_per_gene()
