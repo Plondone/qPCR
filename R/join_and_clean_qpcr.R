@@ -8,7 +8,7 @@
 #' @param by.b column to join gene samples
 #' @return A tidy and clean dataframe
 #' @export
-join_and_clean_qpcr <- function(df = qpcr, df.a = ann_samples, df.b = ann_genes, by.a = "Sample", by.b = "Primer") {
+join_and_clean_qpcr <- function(df = qpcr, df.a = ann_samples, df.b = ann_genes, by.a = "Sample", by.b = "Target") {
   df <- df %>%
     left_join(df.a, by = by.a) %>%
     left_join(df.b, by = by.b)
