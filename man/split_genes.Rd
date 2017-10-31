@@ -4,7 +4,7 @@
 \alias{split_genes}
 \title{Split genes}
 \usage{
-split_genes(df)
+split_genes(df, CT = "CT")
 }
 \arguments{
 \item{df}{qpcr df}

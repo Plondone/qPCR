@@ -4,7 +4,7 @@
 \alias{read_qpcr}
 \title{Read qpcr file}
 \usage{
-read_qpcr(x)
+read_qpcr(x, sheet = 3, skip = 35)
 }
 \arguments{
 \item{x}{An excel document}

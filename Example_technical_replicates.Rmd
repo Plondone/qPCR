@@ -29,16 +29,7 @@ ann_genes <- read_annotation("Data/Annotations_primers_124839_technical_replicat
 ###Technical replicates
 #List technical replicates above sd of 0.4
 ```{r}
-qpcr$CT <- as.numeric(qpcr$CT)
-qpcr <- qpcr %>%
-  group_by(Target, Sample) %>%
-  summarise(Avg_CT = mean(CT, na.rm = TRUE), Sd_CT = sd(CT, na.rm = TRUE), 
-            Avg_Tm1 = mean(Tm1, na.rm = TRUE), Sd_Tm1 = sd(Tm1, na.rm = TRUE),
-            Avg_Tm2 = mean(Tm2, na.rm = TRUE), Sd_Tm2 = sd(Tm2, na.rm = TRUE)
-            ) %>%
-  ungroup()
-qpcr %>%
-  filter(Sd_CT > 0.4)
+qc_tech_rep(qpcr)
 ```
 
 

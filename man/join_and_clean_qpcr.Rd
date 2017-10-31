@@ -5,7 +5,7 @@
 \title{Merge and clean data}
 \usage{
 join_and_clean_qpcr(df = qpcr, df.a = ann_samples, df.b = ann_genes,
-  by.a = "Sample", by.b = "Gene")
+  by.a = "Sample", by.b = "Target")
 }
 \arguments{
 \item{df}{qpcr file}

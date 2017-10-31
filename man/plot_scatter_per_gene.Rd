@@ -4,7 +4,7 @@
 \alias{plot_scatter_per_gene}
 \title{Plots a scatterplot per gene}
 \usage{
-plot_scatter_per_gene(df, gene, x.var, y.var, col.var)
+plot_scatter_per_gene(df, gene, x.var, y.var, col.var = FALSE, theme = 14)
 }
 \arguments{
 \item{df}{DCT df}

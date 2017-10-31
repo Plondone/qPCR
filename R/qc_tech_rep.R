@@ -13,5 +13,5 @@ qc_tech_rep <- function(df, threshold = 0.4, col_target = "Target", col_sample =
               Avg_Tm2 = mean(Tm2, na.rm = TRUE), Sd_Tm2 = sd(Tm2, na.rm = TRUE)
     ) %>%
     ungroup() %>%
-    filter(Sd_CT > threshold)
+    filter(Sd_CT < threshold)
 }

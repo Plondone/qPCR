@@ -4,7 +4,7 @@
 \alias{plot_scatter}
 \title{Plot scatterplot}
 \usage{
-plot_scatter(df, x.var, y.var, col.var, ncol = 6, nrow = 4)
+plot_scatter(df, x.var, y.var, col.var, ncol = 6, nrow = 4, theme = 8)
 }
 \arguments{
 \item{df}{DCT df}
