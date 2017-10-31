@@ -5,7 +5,7 @@ Package for qPCR analysis with Viia7 data
 
 * With devtools (when you only need the package):
 
-  `devtools::install_github("https://github.com/SCIL-leuven/qpcrviia7.git")`
+  `devtools::install_github("SCIL-leuven/qpcrviia7")`
 
 * From source (if you want to help develop the package or you need example annotation and markdown files):
   1. Download and install [git](https://git-scm.com/downloads) on your mac/pc. 
