@@ -95,3 +95,6 @@ Basic steps of this workflow are:
   * calculate_DCT()
   * plot_scatter()
   * plot_scatter_per_gene()
+
+## To do
+* Simplify quality control on housekeeping genes by implementing split function into qc_hkg()
