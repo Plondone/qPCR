@@ -26,7 +26,7 @@ Install these packages:
 
 ## Data file
 
-Import all the raw data as an excel file without any selections. In the basic template on the Viia7 genes are called **Target** and samples **Sample**. You call the first gene *Target 1*, the second *Target 2* and so on. You do the same for the samples.
+Import all the raw data as an excel file without any selections. In the basic template on the Viia7 genes are called **Target** and samples **Sample**. You call the first gene *Target 1*, the second *Target 2* and so on. You do the same for the samples. If you do this on new experiments it's the easiest to call everything Target and Sample, else you can adapt the data file. The third sheet named results from row 35 should look like this:
 
 
 Well Position | ... | Sample Name | Target Name | ... | CT | ... | Tm1 | Tm2 | ... 
