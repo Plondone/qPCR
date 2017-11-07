@@ -1,6 +1,10 @@
 # qpcrviia7
 Package for qPCR analysis with Viia7 data
 
+## Prior knowledge
+
+Make sure you have some knowledge about R and Rmarkdown. You can find R tutorials online, a good website with online course is [Datacamp](https://www.datacamp.com/). Rmarkdown is a way to easily report your data, the example analysis that you find in this repository are done with Rmarkdown. You can find a tutorial [here](http://rmarkdown.rstudio.com/lesson-1.html).
+
 ## Installation
 
 * With devtools (when you only need the package):
