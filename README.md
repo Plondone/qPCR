@@ -41,7 +41,6 @@ Target | Gene | HKG
 -----|--------|-----
 Target 1 | Psma3 | Y
 Target 2 | Rab35 | Y
-Target 3 | Rpl13a | Y
 Target 4 | Sca1 | N
 
 Another annotation file holds informatation about the samples. This also has one column named **Sample** that resembles the names you gave the samples on the machine, I recommend to name these: Sample 1, Sample 2 ... The other columns contain specific information regarding your experiment. Also specify if you  used a blanc, this will make it easy for to inscept and remove blancs. See the example here:
@@ -50,9 +49,7 @@ Sample | Blanc |Cell_type | Condition | Mouse | Passage | ...
 -------|-------|----------|-----------|-------|--------- |------
 Sample 1 | N |TA | healthy | C57BL6-1 | NA | ...
 Sample 2 | N |TA | healthy | C57BL6-2 | NA | ...
-Sample 3 | N |TA | healthy | C57BL6-3 | NA | ...
-Sample 4 | N |TA | healthy | C57BL6-4 | NA | ...
-Sample 5 | Y | | | | |
+Sample 3 | Y | | | | |
 
 IMPORTANT: Don't put column names with spaces in them, always use an underscore!
 
