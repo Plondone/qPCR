@@ -5,8 +5,10 @@ date: "October 31, 2017"
 output: html_document
 ---
 
+Make sure you did all the previous steps explained in the README file. Install the qpcrviia7 package and the other required packages. Make sure your data file and annotation files are correct. You can use this example as a template to make your own script for analysis. Rmarkdown makes it possible to run the analysis in chunks to understand the individual steps better and can knit everything together in an html file.
 
 # Load librararies
+We first need to load the packages that we will use into our session. Make sure you've installed all packages before else you will get an error.
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(qpcrviia7)
@@ -18,62 +20,86 @@ library(ggthemes)
 library(RColorBrewer)
 ```
 
-# Import and prepare data
+# Prepare files
+## Import data
+Data needs to be imported into the R session, we will use our own functions for this matter. read_qpcr() reads the raw excel file obtained from the Viia7 after qPCR and read_annotation reads our annotation files.
+### Import raw data with read_qpcr()
 ```{r}
-#Import data
 qpcr <- read_qpcr("Data/2017-09-20 124839 FAP-C2C12-Muscle qPCR validation MC.xls", sheet = 3)
-#Import annotation
+```
+
+### Import annotation with read_annotation()
+```{r}
 ann_samples <- read_annotation("Data/Annotations_124839_samples.xlsx")
 ann_genes <- read_annotation("Data/Annotations_124839_primers.xlsx")
+```
 
 
-#Merge and tidy
+## Merge and tidy files with join_and_clean_qpcr()
+After loading in the files we can see that they are still untidy. We will merge all files into one big dataframe and change the undetermined values in the CT column to NA so that our data is ready for analysis.
+```{r}
 join_and_clean_qpcr(qpcr)
 ```
 
-## Quality control
-### Primers and samples
+
+# Quality control
+## CT
+To start we plot all CT values to check the distribution and spot eventual outliers
 ```{r}
 par(mfrow=c(1,1))
 hist(qpcr$CT, main = "CT values")
+```
 
-#Plot CT values for samples
+### Samples
+We plot the CT values per Sample to check the distribution per Sample and to spot outliers. You should also be able to see the blanc sample or if the blanc was totally not contaminated you won't be able to see it. Bad Samples can be removed with remove_sample(). Check the minimal level of CT values to select it later in the function set_min_max_CT(). The value of the blanc sample can be used to set the maximum level of CT.
+```{r}
 ggplot(qpcr, aes(Sample, CT)) +
   geom_boxplot() +
   theme(axis.text.x = element_text(angle = 90)) +
   ggtitle("CT values per sample")
+```
 
-#Plot CT values for primers
+### Genes
+We plot the CT values per Gene to check the distribution per Gene and to spot outliers. Bad Genes can be removed with remove_primer().
+```{r}
 ggplot(qpcr, aes(Gene, CT)) +
   geom_boxplot() +
   theme(axis.text.x = element_text(angle = 90)) +
   ggtitle("CT values per primer")
 ```
 
-#### Remove blanc
+### Remove blanc sample
+After we checked the blanc we don't need it anymore in further analysis so it needs to be removed. We use the function remove_blanc() for this.
 ```{r}
 qpcr <- remove_blanc(qpcr)
 hist(qpcr$CT, main = "CT after removal blanc")
 ```
 
-#### Split hkg from endogenous
+### Seperate endogenous from housekeeping genes
+Now we need to seperate our data into a set of housekeeping genes and endogenous genes. We need to this to be able to run the qc_hkg() function on the housekeeping genes.
 ```{r}
 split_genes(qpcr)
 ```
 
-
-### Endogenous genes
+### Set base CT value
+Undetermined CT values is also biological information, with set_min_max_CT() we put the lowest CT values at 10 and the highest at 40. Every CT that is below 10 or undetermined will become 40.
 ```{r}
-#Set min and max ct value
 endog <- set_min_max_CT(endog, 10, 40)
 hist(endog$CT, main = "CT after set baseline")
+```
 
-#Double meltcurve peaks
+Print a list of all genes with double meltcurve peaks
+```{r}
 list_double_meltcurves(endog, CT = "CT")
+```
+
+Remove samples with bad meltcurves
+```{r}
 remove_bad_meltcurves()
 ```
 
-### Housekeeping genes
+
+## Housekeeping genes
 ```{r}
 #QC on housekeeping genes
 qc_hkg(hkg)
