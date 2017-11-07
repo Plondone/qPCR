@@ -16,6 +16,11 @@ Package for qPCR analysis with Viia7 data
 ## Requirements
 
 Install these packages:
+* tidyverse: universe of packages for data manipulation and plotting
+* Hmisc: statistical analysis
+* ggthemes: ggplot2 themes for plotting
+* RColorBrewer: color palettes for plotting
+* knitr: make tables in Rmarkdown
 
 `install.packages(c("tidyverse", "ggthemes", "RColorBrewer", "knitr", "Hmisc"))`
 
@@ -25,7 +30,7 @@ Import all the raw data as an excel file without any selections. In the basic te
 
 
 Well Position | ... | Sample Name | Target Name | ... | CT | ... | Tm1 | Tm2 | ... 
----|---|---|---|---|---|---|---|---|---
+--- | --- | --- | --- | --- | --- | --- | --- | --- | ---
 A1 | ... | Sample 1 | Target 1 | ... | 21 | ... | 79 | ... | ...
 A2 | ... | Sample 2 | Target 1 | ... | 24 | ... | 79 | ... | ...
 A3 | ... | Sample 1 | Target 2 | ... | 18 | ... | 70 | 80 | ...
@@ -54,7 +59,13 @@ IMPORTANT: Don't put column names with spaces in them, always use an underscore!
 
 ## Workflow
 
-Check the Rmarkdown file for an example of a typical qPCR analysis.
+### Rmarkdown examples
+
+Example analyses were made in [Rmardown](http://rmarkdown.rstudio.com/), this is a very handy tool for reporting and makes it possible to run a script in chunks and afterwards knit it into an html or PDF file and even presentations.
+
+There are two markdown files one is an example analysis with technical replicates and the other one without.
+
+### Basic workflow in steps
 
 Basic steps of this workflow are:
 1. **Read and prepare files**
