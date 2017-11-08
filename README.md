@@ -99,3 +99,4 @@ Basic steps of this workflow are:
 ## To do
 * Simplify quality control on housekeeping genes by implementing split function into qc_hkg()
 * Change set_min_max_CT() so that lower CT values will become NA and not 40
+* Change irregularities in assign
