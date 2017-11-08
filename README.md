@@ -73,7 +73,7 @@ IMPORTANT: Don't put column names with spaces in them, always use an underscore!
 
 ### Rmarkdown examples
 
-There are two example analyses one with and one without technical replicates. You can find them in the doc folder of inst. 
+There are two example analyses one with and one without technical replicates. You can find them in the **doc** folder of **inst**. 
 Example analyses were made with [Rmarkdown](http://rmarkdown.rstudio.com/), this is a very neat tool for reporting and makes it possible to run a script in chunks and afterwards knit it into an html or PDF file and even presentations. You can open the .rmd file to run the analysis in chunks by yourself.
 
 ### Basic workflow in steps
