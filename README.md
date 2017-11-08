@@ -32,9 +32,11 @@ Install these packages in Rstudio:
 
 * From source (if you want to help develop the package):
   1. Download and install [git](https://git-scm.com/downloads) on your mac/pc. 
-  2. Open a new project in Rstudio and select version control. [step-by-step manual](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) 
-  3. Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
-  4. In the top right panel, under Build, click Build & Reload (this installs the package).
+  1. Open a new project in Rstudio and select version control. [step-by-step manual](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) 
+  1. Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
+  1. In the top right panel, under Build, click Build & Reload (this installs the package).
+  1. Run the following code to check out example analyses: 
+  `devtools::build_vignettes()`
 
 ## Data file
 
@@ -73,8 +75,10 @@ IMPORTANT: Don't put column names with spaces in them, always use an underscore!
 
 ### Rmarkdown examples
 
-There are two example analyses one with and one without technical replicates. You can find them in the **doc** folder of **inst**. 
 Example analyses were made with [Rmarkdown](http://rmarkdown.rstudio.com/), this is a very neat tool for reporting and makes it possible to run a script in chunks and afterwards knit it into an html or PDF file and even presentations. You can open the .rmd file to run the analysis in chunks by yourself.
+
+To check the example analyses run this code in the terminal:
+`devtools::build_vignettes()`
 
 ### Basic workflow in steps
 
