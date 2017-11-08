@@ -50,7 +50,7 @@ par(mfrow=c(1,1))
 hist(qpcr$CT, main = "CT values")
 ```
 
-### Samples
+#### Samples
 We plot the CT values per Sample to check the distribution per Sample and to spot outliers. You should also be able to see the blanc sample or if the blanc was totally not contaminated you won't be able to see it. Bad Samples can be removed with remove_sample(). Check the minimal level of CT values to select it later in the function set_min_max_CT(). The value of the blanc sample can be used to set the maximum level of CT.
 ```{r}
 ggplot(qpcr, aes(Sample, CT)) +
@@ -59,7 +59,7 @@ ggplot(qpcr, aes(Sample, CT)) +
   ggtitle("CT values per sample")
 ```
 
-### Genes
+#### Genes
 We plot the CT values per Gene to check the distribution per Gene and to spot outliers. Bad Genes can be removed with remove_primer().
 ```{r}
 ggplot(qpcr, aes(Gene, CT)) +
@@ -68,20 +68,20 @@ ggplot(qpcr, aes(Gene, CT)) +
   ggtitle("CT values per primer")
 ```
 
-### Remove blanc sample
+#### Remove blanc sample
 After we checked the blanc we don't need it anymore in further analysis so it needs to be removed. We use the function remove_blanc() for this.
 ```{r}
 qpcr <- remove_blanc(qpcr)
 hist(qpcr$CT, main = "CT after removal blanc")
 ```
 
-### Seperate endogenous from housekeeping genes
+#### Seperate endogenous from housekeeping genes
 Now we need to seperate our data into a set of housekeeping genes and endogenous genes. We need to this to be able to run the qc_hkg() function on the housekeeping genes.
 ```{r}
 split_genes(qpcr)
 ```
 
-### Set base CT value
+#### Set base CT value
 Undetermined CT values is also biological information, with set_min_max_CT() we put the lowest CT values at 10 and the highest at 40. Every CT that is below 10 or undetermined will become 40.
 ```{r}
 endog <- set_min_max_CT(endog, 10, 40)
@@ -100,39 +100,57 @@ remove_bad_meltcurves()
 
 
 ## Housekeeping genes
+#### Quality control per housekeeping gene with qc_hkg()
+Now we will perform some quality control measures on our housekeeping genes. We recommend to use three housekeeping genes that show stable expression accross samples. the qc_hkg() function will check the distrubtion of CT values between samples of all housekeeping genes seperately. Here, we can see if the variability of any of the housekeeping genes is too high.
 ```{r}
-#QC on housekeeping genes
 qc_hkg(hkg)
 ```
 
-#### Remove Rpl13a
+#### Remove irregular housekeeping genes with remove_primer()
+In this example Rpl13a shows a binomial expression throughout the dataset. This is because we compare cell lines in vitro with skeletal muscle. Therefore, we remove this housekeeping gene with remove_primer()
 ```{r}
 remove_primer(endog, "Rpl13a")
 ```
 
 
-#### Take geometric average all housekeeping genes
+#### Take geometric average over all housekeeping genes with calculate_mena_hkg()
+When we assessed the quality of our housekeeping genes seperately it's time to take the average of these genes.
 ```{r}
 mean_hkg <- calculate_mean_hkg(hkg)
+```
+
+#### Quality control over average of housekeeping genes with qc_mean_hkg()
+After taking the average we plot quality control measures again to check for outliers.
+```{r}
 qc_mean_hkg(mean_hkg)
 ```
 
-#### Remove outliers
+#### Remove outliers with remove_outliers()
+Outliers are defined by boxplots, every sample that is outside 1.5 * IQR is regarded as an outliers and can skew analysis of that data. Therefore, we remove these with the function remove_outliers()
 ```{r}
 mean_hkg$CT_avg_hkg <- remove_outliers(mean_hkg$CT_avg_hkg)
 ```
 
 
-## Delta CT
-### Calculate Delta CT
+# Delta CT
+When quality control is done we can normalize over housekeeping genes. So far this package can calculate Delta CT and Relative expression compared to housekeeping genes. Functions calculating fold change will be incorporated soon.
+
+### Calculate Delta CT with calculate_DCT()
+The function calculate_DCT calculates Delta CT and relative expression. Make sure to select your annotation columns that are important for plotting! Fill them in under the cols argument of calculate_DCT(). In this example we selected Cell_type, "Condition" and "Mouse".
 ```{r}
 calculate_DCT(endog, mean_hkg, cols = c("Cell_type", "Condition", "Mouse"))
 ```
 
 ### Plot Delta CT
-#### Scatter plot
+#### Plot all genes
+Make a summary plot of the Delta CT values of all genes and samples together. Therefore, you need to fill in the x.var, y.var and col.var variable in function plot_scatter(). As x.var we use *Cell_type* to plot the different cell types over the x axis, y.var is *DCt* to plot Delta CT values on the y axis and col.var is *Condition* this is because we are comparing between healthy and dystrohpic cells. The function automatically makes a plot per *Gene* in the data set. 
 ```{r}
 plot_scatter(endog, x.var = "Cell_type", y.var = "DCt", col.var = "Condition")
+```
+
+#### Plot selected gene
+You can also plot a specific gene with plot_scatter_per_gene(), you can select the gene under the variable **gene**.
+```{r}
 plot_scatter_per_gene(endog, "Dcn", x.var = "Cell_type", y.var = "DCt", col.var = "Condition", theme = 18) +
   labs(y = "Delta CT") +
   scale_fill_discrete(name = "Cell type") +
@@ -141,11 +159,17 @@ plot_scatter_per_gene(endog, "Dcn", x.var = "Cell_type", y.var = "DCt", col.var 
 
 
 ### Plot relative expression
+We can also plot the relative expression towards the housekeeping genes. We generate the same plots as under Delta CT.
 #### Plot scatter
 ```{r}
 plot_scatter(endog, x.var = "Cell_type", y.var = "rel_expr", col.var = "Condition") 
+```
+
+#### Plot selected gene
+```{r}
 plot_scatter_per_gene(endog, "Dcn", x.var = "Cell_type", y.var = "rel_expr", col.var = "Condition", theme = 18) +
   labs(y = "Relative expression") +
   scale_fill_discrete(name = "Cell type") +
   scale_x_discrete(labels = c("C2C12 GFP" = "C2C12", "FAP" = "FAP", "TA" = "Tibialis\nanterior"))
 ```
+
