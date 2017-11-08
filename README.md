@@ -6,7 +6,25 @@ Package for qPCR analysis with Viia7 data
 Make sure you have some knowledge about [R](https://cran.r-project.org/) and [Rmarkdown](http://rmarkdown.rstudio.com/index.html). You can find R tutorials online, a good website with online courses is [Datacamp](https://www.datacamp.com/). 
 Rmarkdown is a way to easily report your data, the example analysis that you find in this repository make use of this. You can find a tutorial [here](http://rmarkdown.rstudio.com/lesson-1.html).
 
-## Installation
+## Requirements
+Install these programs:
+* [R](https://cran.r-project.org/)
+* [Rstudio](https://www.rstudio.com/products/rstudio/download/) 
+* [Rtools](https://cran.r-project.org/bin/windows/Rtools/) for PC only. 
+
+For a guideline how to set-up everything on mac click [here](https://www.andrewheiss.com/blog/2012/04/17/install-r-rstudio-r-commander-windows-osx/).
+
+Install these packages:
+* devtools: to make sure you can install this package from github
+* knitr: make tables in Rmarkdown
+* tidyverse: universe of packages for data manipulation and plotting
+* Hmisc: statistical analysis
+* ggthemes: ggplot2 themes for plotting
+* RColorBrewer: color palettes for plotting
+
+`install.packages(c("devtools", "knitr" ,"tidyverse", "Hmisc", "ggthemes", "RColorBrewer"))`
+
+## Installation of qpcrviia7
 
 * With devtools (when you only need the package):
 
@@ -17,17 +35,6 @@ Rmarkdown is a way to easily report your data, the example analysis that you fin
   2. Open a new project in Rstudio and select version control. [step-by-step manual](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) 
   3. Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
   4. In the top right panel, under Build, click Build & Reload (this installs the package).
-
-## Requirements
-
-Install these packages:
-* tidyverse: universe of packages for data manipulation and plotting
-* Hmisc: statistical analysis
-* ggthemes: ggplot2 themes for plotting
-* RColorBrewer: color palettes for plotting
-* knitr: make tables in Rmarkdown
-
-`install.packages(c("tidyverse", "ggthemes", "RColorBrewer", "knitr", "Hmisc"))`
 
 ## Data file
 
@@ -66,7 +73,7 @@ IMPORTANT: Don't put column names with spaces in them, always use an underscore!
 
 ### Rmarkdown examples
 
-Example analyses were made in [Rmardown](http://rmarkdown.rstudio.com/), this is a very handy tool for reporting and makes it possible to run a script in chunks and afterwards knit it into an html or PDF file and even presentations.
+Example analyses were made in [Rmarkdown](http://rmarkdown.rstudio.com/), this is a very handy tool for reporting and makes it possible to run a script in chunks and afterwards knit it into an html or PDF file and even presentations.
 
 There are two markdown files one is an example analysis with technical replicates and the other one without.
 
