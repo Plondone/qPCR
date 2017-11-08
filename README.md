@@ -30,7 +30,7 @@ Install these packages in Rstudio:
 
   `devtools::install_github("SCIL-leuven/qpcrviia7")`
 
-* From source (if you want to help develop the package or you need example annotation and markdown files):
+* From source (if you want to help develop the package):
   1. Download and install [git](https://git-scm.com/downloads) on your mac/pc. 
   2. Open a new project in Rstudio and select version control. [step-by-step manual](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) 
   3. Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
