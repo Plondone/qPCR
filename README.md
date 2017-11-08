@@ -14,7 +14,7 @@ Install these programs:
 
 For a guideline how to set-up everything on mac click [here](https://www.andrewheiss.com/blog/2012/04/17/install-r-rstudio-r-commander-windows-osx/).
 
-Install these packages:
+Install these packages in Rstudio:
 * devtools: to make sure you can install this package from github
 * knitr: make tables in Rmarkdown
 * tidyverse: universe of packages for data manipulation and plotting
