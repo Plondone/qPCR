@@ -5,6 +5,9 @@ date: "31 oktober 2017"
 output: html_document
 ---
 
+Make sure you did all the previous steps explained in the README file. Install the qpcrviia7 package and the other required packages. Make sure your data file and annotation files are correct. You can use this example as a template to make your own script for analysis. Rmarkdown makes it possible to run the analysis in chunks to understand the individual steps better and can knit everything together in an html file.
+
+# Load libraries
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(qpcrviia7)
@@ -17,48 +20,66 @@ library(RColorBrewer)
 library(Hmisc)
 ```
 
-## Import and prepare data
+# Prepare files
+## Import data
+Data needs to be imported into the R session, we will use our own functions for this matter. read_qpcr() reads the raw excel file obtained from the Viia7 after qPCR and read_annotation reads our annotation files.
+
+#### Import raw data with read_qpcr()
 ```{r}
-#Import data
 qpcr <- read_qpcr("Data/2017-10-05 FAP-C2C12-Muscle qPCR validation MC.xls")
-#Import annotation
+```
+
+#### Import annotation with read_annotation()
+```{r}
 ann_samples <- read_annotation("Data/Annotations_samples_124839_technical_replicates.xlsx")
 ann_genes <- read_annotation("Data/Annotations_primers_124839_technical_replicates.xlsx")
 ```
 
+
+# Quality control
 ## Technical replicates
-### List technical replicates above sd of 0.4
+Before merging our data and annotation files we first check the quality of our technical replicates.
+#### List bad technical replicates with list_bad_tech_rep()
+This function prints a list of all technical replicates above a certain standard deviation. The standard deviation is put to 0.4 but you change it inside the function under argument threshold.
 ```{r}
 list_bad_tech_rep(qpcr)
 ```
 
-###Save by saving this function into qpcr dataframe
+#### Merge technical replicates with qc_tech_rep()
+After setting the right threshold we merge all our technical replicates together by taking the average with qc_tech_rep().
 ```{r}
 qpcr <- qc_tech_rep(qpcr)
-# Change remove Avg from col names
+#remove Avg from col names for further functions
 colnames(qpcr) <- c("Target", "Sample", "CT", "SD_CT", "Tm1", "SD_Tm1", "Tm2", "SD_Tm2")
 ```
 
 
-## Merge and tidy
+## Merge and tidy files with join_and_clean_qpcr()
+After loading in the files we can see that they are still untidy. We will merge all files into one big dataframe and change the undetermined values in the CT column to NA so that our data is ready for analysis.
 ```{r}
 join_and_clean_qpcr(qpcr)
 ```
 
 
-## Quality control
-### Primers and samples
+## CT
+To start we plot all CT values to check the distribution and spot eventual outliers.
 ```{r}
 par(mfrow=c(1,1))
 hist(qpcr$CT, main = "CT values")
+```
 
-#Plot CT values for samples
+#### Samples
+We plot the CT values per Sample to check the distribution per Sample and to spot outliers. You should also be able to see the blanc sample or if the blanc was totally not contaminated you won't be able to see it. Bad Samples can be removed with remove_sample(). Check the minimal level of CT values to select it later in the function set_min_max_CT(). The value of the blanc sample can be used to set the maximum level of CT.
+```{r}
 ggplot(qpcr, aes(Sample, CT)) +
   geom_boxplot() +
   theme(axis.text.x = element_text(angle = 90)) +
   ggtitle("CT values per sample")
+```
 
-#Plot CT values for primers
+#### Primers
+We plot the CT values per Gene to check the distribution per Gene and to spot outliers. Bad Genes can be removed with remove_primer().
+```{r}
 ggplot(qpcr, aes(Gene, CT)) +
   geom_boxplot() +
   theme(axis.text.x = element_text(angle = 90)) +
@@ -66,7 +87,7 @@ ggplot(qpcr, aes(Gene, CT)) +
 ```
 
 
-### Remove blanc and 
+### Remove blanc
 ```{r}
 qpcr <- remove_blanc(qpcr)
 hist(qpcr$CT, main = "CT after removal blanc")
