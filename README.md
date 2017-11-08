@@ -34,7 +34,7 @@ Install these packages in Rstudio:
   1. Download and install [git](https://git-scm.com/downloads) on your mac/pc. 
   1. Open a new project in Rstudio and select version control. [step-by-step manual](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) 
   1. Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
-  1. In the top right panel, under Build, click Build & Reload (this installs the package).
+  1. In the top right panel, under *Build*, click *Build & Reload* (this installs the package).
   1. Run the following code to check out example analyses: 
   `devtools::build_vignettes()`
 
