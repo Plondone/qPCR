@@ -6,7 +6,7 @@
 #' @param max Maximum CT value
 #' @return qpcr dataframe
 #' @export
-set_min_max_CT <- function(df, CT, min = 10, max = 40) {
+set_min_max_CT <- function(df, CT = "CT", min = 10, max = 40) {
   df[[CT]][df[[CT]] < min] <- NA
   df[[CT]][is.na(df[[CT]])] <- max
   df[[CT]][df[[CT]] > max] <- max

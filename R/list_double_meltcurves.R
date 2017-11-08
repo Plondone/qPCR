@@ -4,7 +4,7 @@
 #' @param df qpcr df
 #' @return Tibble
 #' @export
-list_double_meltcurves <- function(df, CT) {
+list_double_meltcurves <- function(df, CT = "CT") {
 df %>%
   arrange(Gene) %>%
   select_(CT, "Tm1", "Tm2") %>%
