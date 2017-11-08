@@ -51,15 +51,15 @@ Before merging our data and annotation files we first check the quality of our t
 This function prints a list of all technical replicates above a certain standard deviation. The standard deviation is put to 0.4 but you change it inside the function under argument threshold.
 
 ```{r}
-list_bad_tech_rep(qpcr)
+list_bad_tech_rep(qpcr, treshold = 0.4)
 ```
 
 ### Merge technical replicates with qc_tech_rep()
 
-After setting the right threshold we merge all our technical replicates together by taking the average with qc_tech_rep().
+After setting the right threshold we merge all our technical replicates together by taking the average with qc_tech_rep(). The standard deviation is put to 0.4 but you change it inside the function under argument threshold.
 
 ```{r}
-qpcr <- qc_tech_rep(qpcr)
+qpcr <- qc_tech_rep(qpcr, threshold = 0.4)
 #remove Avg from col names for further functions
 colnames(qpcr) <- c("Target", "Sample", "CT", "SD_CT", "Tm1", "SD_Tm1", "Tm2", "SD_Tm2")
 ```
