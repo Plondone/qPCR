@@ -7,14 +7,14 @@ Make sure you have some knowledge about [R](https://cran.r-project.org/) and [Rm
 Rmarkdown is a way to easily report your data, the example analysis that you find in this repository make use of this. You can find a tutorial [here](http://rmarkdown.rstudio.com/lesson-1.html).
 
 ## Requirements
-Install these programs:
+1. Install these programs:
 * [R](https://cran.r-project.org/)
 * [Rstudio](https://www.rstudio.com/products/rstudio/download/) 
 * [Rtools](https://cran.r-project.org/bin/windows/Rtools/) for PC only. 
 
 For a guideline how to set-up everything on mac click [here](https://www.andrewheiss.com/blog/2012/04/17/install-r-rstudio-r-commander-windows-osx/).
 
-Install these packages in Rstudio:
+1. Install these packages in Rstudio:
 * devtools: to make sure you can install this package from github
 * knitr: make tables in Rmarkdown
 * tidyverse: universe of packages for data manipulation and plotting
@@ -36,7 +36,9 @@ Install these packages in Rstudio:
   1. Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
   1. In the top right panel, under *Build*, click *Build & Reload* (this installs the package).
   1. Run the following code in the terminal to check out example analyses: 
-  `devtools::build_vignettes()`
+  `devtools::build_vignettes()` (Possible that this doesn't work because it requires pandoc)
+  or 
+  1. Open .Rmd file in folder vignettes and press Knit to html
 
 ## Data file
 
