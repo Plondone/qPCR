@@ -14,7 +14,7 @@ Rmarkdown is a way to easily report your data, the example analysis that you fin
 
 For a guideline how to set-up everything on mac click [here](https://www.andrewheiss.com/blog/2012/04/17/install-r-rstudio-r-commander-windows-osx/).
 
-1. Install these packages in Rstudio:
+2. Install these packages in Rstudio:
 * devtools: to make sure you can install this package from github
 * knitr: make tables in Rmarkdown
 * tidyverse: universe of packages for data manipulation and plotting
@@ -37,8 +37,8 @@ For a guideline how to set-up everything on mac click [here](https://www.andrewh
   1. In the top right panel, under *Build*, click *Build & Reload* (this installs the package).
   1. Run the following code in the terminal to check out example analyses: 
   `devtools::build_vignettes()` (Possible that this doesn't work because it requires pandoc)
-  or 
-  1. Open .Rmd file in folder vignettes and press Knit to html
+  
+  or Open **.Rmd** file in folder **vignettes** and press *Knit to html*
 
 ## Data file
 
