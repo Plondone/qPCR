@@ -115,3 +115,4 @@ Basic steps of this workflow are:
 * Change set_min_max_CT() so that lower CT values will become NA and not 40
 * Change irregularities in assign
 * Add function that calculates fold change and it's statistics
+* Add information to load your files in .Rmd examples
