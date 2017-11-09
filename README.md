@@ -82,6 +82,8 @@ Example analyses were made with [Rmarkdown](http://rmarkdown.rstudio.com/), this
 To check the example analyses run this code in the terminal:
 `devtools::build_vignettes()`
 
+You can also run the code chunk by chunk with Rmarkdown. Open an **.Rmd** file in the folder **vignettes** and run the chunks by pressing on the green play button top right.
+
 ### Basic workflow in steps
 
 Basic steps of this workflow are:
