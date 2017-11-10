@@ -116,3 +116,4 @@ Basic steps of this workflow are:
 * Change irregularities in assign
 * Add function that calculates fold change and it's statistics
 * Add information to load your files in .Rmd examples
+* Adapt read-qpcr so that you can select which columns to keep
