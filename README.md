@@ -1,6 +1,10 @@
 # qpcrviia7
 Package for qPCR analysis made especially for data obtained with Viia 7 Real-time PCR system.
 
+## Website
+
+You can also find explanation about this package on https://scil-leuven.github.io/qpcrviia7/
+
 ## Prior knowledge
 
 Make sure you have some knowledge about [R](https://cran.r-project.org/) and [tidyverse](https://www.tidyverse.org/). You can find R and tidyverse tutorials online, a good website with online courses is [Datacamp](https://www.datacamp.com/). 
