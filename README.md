@@ -49,11 +49,13 @@ For a guideline how to set-up everything on mac click [here](https://www.andrewh
 Import all the raw data as an excel file without any selections. In the basic template on the Viia7 genes are called **Target** and samples **Sample**. You call the first gene *Target 1*, the second *Target 2* and so on. You do the same for the samples. If you do this on new experiments it's the easiest to call everything Target and Sample, else you can adapt the data file. The third sheet named results from row 35 should look like this:
 
 
-Well | Well Position | ... | Sample Name | Target Name | ... | CT | CT Treshold | ... | Tm1 | Tm2 | Tm3 | ... 
---- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
-1 | A1 | ... | Sample 1 | Target 1 | ... | 21 | 0.4 |... | 79 | ... | ... | ...
-2 | A2 | ... | Sample 2 | Target 1 | ... | 24 | 0.4| ... | 79 | ... | ... | ...
-3| A3 | ... | Sample 1 | Target 2 | ... | 18 | 0.4 | ... | 70 | 82 | 89 |...
+Well | Well Position |...| Sample Name | Target Name |...| CT | CT Treshold |...| Tm1 | Tm2 | Tm3 |... 
+-----|---------------|---|-------------|-------------|---|----|-------------|---|-----|-----|-----|---
+1    | A1            |...| Sample 1    | Target 1    |...| 21 | 0.4         |...| 79  | ... | ... |...
+2    | A2            |...| Sample 2    | Target 1    |...| 24 | 0.4         |...| 79  | ... | ... |...
+3    | A3            |...| Sample 1    | Target 2    |...| 18 | 0.4         |...| 70  | 82  | 89  |...
+
+**IMPORTANT** For the moment all these input paremeters are mandotory! The use of melt curves will become optional in the future.
 
 ## Annotation files
 
@@ -61,21 +63,21 @@ Two annotation files need to be created.
 
 One for primers, this one should have two columns: one **Target** column that resembles the names you gave to the primers. I recommend to use the basic names from the machine: Target 1, Target 2 ... The other columns are the gene names you want to analyze and if these are housekeeping genes or not.
 
-Target | Gene | HKG
------|--------|-----
+Target   | Gene  | HKG
+---------|-------|-----
 Target 1 | Psma3 | Y
 Target 2 | Rab35 | Y
-Target 4 | Sca1 | N
+Target 4 | Sca1  | N
 
 Another annotation file holds informatation about the samples. This also has one column named **Sample** that resembles the names you gave the samples on the machine, I recommend to name these: Sample 1, Sample 2 ... The other columns contain specific information regarding your experiment. Also specify if you  used a blanc, this will make it easy for to inscept and remove blancs. See the example here:
 
-Sample | Blanc |Cell_type | Condition | Mouse | Passage | ...
--------|-------|----------|-----------|-------|--------- |------
-Sample 1 | N |TA | healthy | C57BL6-1 | NA | ...
-Sample 2 | N |TA | healthy | C57BL6-2 | NA | ...
-Sample 3 | Y | | | | |
+Sample    | Blanc |Cell_type  | Condition | Mouse     | Passage   | ...
+----------|-------|-----------|-----------|-----------|-----------|------
+Sample 1  | N     |TA         | healthy   | C57BL6-1  | NA        | ...
+Sample 2  | N     |TA         | healthy   | C57BL6-2  | NA        | ...
+Sample 3  | Y     |           |           |           |           |
 
-IMPORTANT: Don't put column names with spaces in them, always use an underscore!
+**IMPORTANT**: Don't put column names with spaces in them, always use an underscore!
 
 ## Workflow
 
@@ -121,3 +123,4 @@ Basic steps of this workflow are:
 * Add function that calculates fold change and it's statistics
 * Add information to load your files in .Rmd examples
 * Adapt read-qpcr so that you can select which columns to keep
+* Automate functions for use without melttemperatures
