@@ -200,6 +200,7 @@ In this example new outliers pop up after a first outlier removal. It is possibl
 ```{r, fig.width=5, fig.height=5}
 qc_mean_hkg(mean_hkg)
 mean_hkg$CT_avg_hkg <- remove_outliers(mean_hkg$CT_avg_hkg)
+shapiro.test(mean_hkg$CT_avg_hkg)
 ```
 
 
