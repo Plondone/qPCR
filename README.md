@@ -124,3 +124,4 @@ Basic steps of this workflow are:
 * Add information to load your files in .Rmd examples
 * Adapt read-qpcr so that you can select which columns to keep
 * Automate functions for use without melt temperatures
+* Add statistics
