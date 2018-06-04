@@ -12,8 +12,8 @@ join_and_clean_qpcr <- function(df = qpcr, df.a = ann_samples, df.b = ann_genes,
   df <- df %>%
     left_join(df.a, by = by.a) %>%
     left_join(df.b, by = by.b)
-  df[ ,colnames(ann_samples)] <- lapply(df[ ,colnames(ann_samples)], factor)
-  df[ ,colnames(ann_genes)] <- lapply(df[ ,colnames(ann_genes)], factor)
+  #df[ ,colnames(ann_samples)] <- lapply(df[ ,colnames(ann_samples)], factor)
+  #df[ ,colnames(ann_genes)] <- lapply(df[ ,colnames(ann_genes)], factor)
   #df$CT <- as.numeric(df$CT)
   print(df)
   str(df)
