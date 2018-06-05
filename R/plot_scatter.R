@@ -12,15 +12,19 @@
 plot_scatter <- function(df, x, y, color, gene = NA, dotsize = 1.5, pointrange_size = 2,  ncol = 6, nrow = 4, theme = 8) {
   if (is.na(gene) == TRUE) {
     p <- ggplot(df, aes_string(x = x, y = y)) +
-      geom_dotplot(binaxis = "y", stackdir = "center", dotsize = dotsize, stackratio = 1, position = position_dodge(1)) +
-      stat_summary(aes_string(col = color), fun.data = "mean_sdl", fun.args = list(mult = 1), geom = "pointrange", size = pointrange_size, position = position_dodge(1)) +
+      geom_dotplot(aes_string(fill = color, col = color), binaxis = "y", stackdir = "center", dotsize = dotsize, stackratio = 1, position = position_dodge(1)) +
+      #stat_summary(aes_string(col = color), fun.data = "mean_sdl", fun.args = list(mult = 1), geom = "pointrange",
+      #             size = pointrange_size, position = position_dodge(1), shape = 20) +
+      stat_summary(fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", width = 0.9, alpha = 0.1) +
       facet_wrap(~Gene, ncol = ncol, nrow = nrow, scales = "free")
   } else {
     p <- df %>%
       dplyr::filter(Gene == gene) %>%
       ggplot(aes_string(x = x, y = y)) +
-      geom_dotplot(binaxis = "y", stackdir = "center", dotsize = dotsize, stackratio = 1, position = position_dodge(1)) +
-      stat_summary(aes_string(col = color), fun.data = "mean_sdl", fun.args = list(mult = 1), geom = "pointrange", size = pointrange_size, position = position_dodge(1)) +
+      geom_dotplot(aes_string(fill = color, col = color), binaxis = "y", stackdir = "center", dotsize = dotsize, stackratio = 1, position = position_dodge(1)) +
+      #stat_summary(aes_string(col = color), fun.data = "mean_sdl", fun.args = list(mult = 1), geom = "pointrange",
+      #             size = pointrange_size, position = position_dodge(1), shape = 20) +
+      stat_summary(fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", width = 0.9, alpha = 0.1) +
       ggtitle(gene)
   }
 
