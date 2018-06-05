@@ -6,8 +6,8 @@
 #' @param group Group variable between which the test should be performed
 #' @return p value
 #' @export
-stat_t_test <- function(df = endog, gene, group) {
+stat_t_test <- function(df = endog, gene, group, paired = FALSE) {
   temp <- df %>%
     dplyr::filter(Gene == gene)
-  t.test(temp[["DCt"]] ~ temp[[group]])$p.value
+  t.test(temp[["DCt"]] ~ temp[[group]], paired = paired)$p.value
 }
