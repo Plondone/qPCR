@@ -1,6 +1,10 @@
 # qpcrviia7
 Package for qPCR analysis made especially for data obtained with Viia 7 Real-time PCR system.
 
+## UPDATE
+* Statistics added: integrated t-test
+* Plotting time series integrated
+
 ## Website
 
 You can also find explanation about this package on https://scil-leuven.github.io/qpcrviia7/
@@ -114,7 +118,8 @@ Basic steps of this workflow are:
 3. **Calculate Delta CT**
   * calculate_DCT()
   * plot_scatter()
-  * plot_scatter_per_gene()
+ 4. **Statistics**
+  * stat_t_test()
 
 ## To do
 * Simplify quality control on housekeeping genes by implementing split function into qc_hkg()
