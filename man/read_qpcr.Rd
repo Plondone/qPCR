@@ -4,10 +4,16 @@
 \alias{read_qpcr}
 \title{Read qpcr file}
 \usage{
-read_qpcr(x, sheet = 3, skip = 35)
+read_qpcr(x, sheet = 3, skip = 35, melt_curves = TRUE)
 }
 \arguments{
 \item{x}{An excel document}
+
+\item{sheet}{Excel sheet to import}
+
+\item{skip}{Rows to skip of excel sheet}
+
+\item{melt_curves}{Boolean to integrate melt curve analysis}
 }
 \value{
 A dataframe
