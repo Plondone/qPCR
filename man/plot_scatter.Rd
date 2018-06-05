@@ -4,16 +4,17 @@
 \alias{plot_scatter}
 \title{Plot scatterplot}
 \usage{
-plot_scatter(df, x.var, y.var, col.var, ncol = 6, nrow = 4, theme = 8)
+plot_scatter(df, x, y, color, gene = NA, dotsize = 1.5,
+  pointrange_size = 2, ncol = 6, nrow = 4, theme = 8)
 }
 \arguments{
 \item{df}{DCT df}
 
-\item{x.var}{Variable to plot on x-axis}
+\item{x}{Variable to plot on x-axis}
 
-\item{y.var}{Variable to plot on y-axis}
+\item{y}{Variable to plot on y-axis}
 
-\item{col.var}{Variable to plot colours}
+\item{color}{Variable to plot colours}
 
 \item{ncol}{Amount of columns}
 
