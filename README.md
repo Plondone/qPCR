@@ -115,3 +115,4 @@ Basic steps of this workflow are:
 * Add function that calculates fold change and it's statistics
 * Add information to load your files in .Rmd examples
 * Add more statistics
+* Add more simple analysis without annotation files
