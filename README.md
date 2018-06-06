@@ -4,6 +4,7 @@ Package for qPCR analysis made especially for data obtained with Viia 7 Real-tim
 ## UPDATE
 * Statistics added: integrated t-test
 * Plotting time series integrated
+* Export calculations to .xlsx file
 
 ## Website
 
@@ -118,8 +119,10 @@ Basic steps of this workflow are:
 3. **Calculate Delta CT**
   * calculate_DCT()
   * plot_scatter()
- 4. **Statistics**
+4. **Statistics**
   * stat_t_test()
+5. **Export**
+  * write.xlsx()
 
 ## To do
 * Simplify quality control on housekeeping genes by implementing split function into qc_hkg()
