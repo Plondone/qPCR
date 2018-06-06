@@ -28,7 +28,7 @@ For a guideline how to set-up everything on mac click [here](https://www.andrewh
 * tidyverse: universe of packages for data manipulation and plotting
 * Hmisc: statistical analysis
 
-`install.packages(c("devtools", "tidyverse", "Hmisc"))`
+  `install.packages(c("devtools", "tidyverse", "Hmisc"))`
 
 * Installation of qpcrviia7
 
