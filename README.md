@@ -25,11 +25,10 @@ For a guideline how to set-up everything on mac click [here](https://www.andrewh
 
 2. Install these packages in Rstudio:
 * devtools: to make sure you can install this package from github
-* knitr: make tables in Rmarkdown
 * tidyverse: universe of packages for data manipulation and plotting
 * Hmisc: statistical analysis
 
-`install.packages(c("devtools", "knitr" ,"tidyverse", "Hmisc"))`
+`install.packages(c("devtools", "tidyverse", "Hmisc"))`
 
 * Installation of qpcrviia7
 
