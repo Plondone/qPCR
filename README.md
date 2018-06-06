@@ -28,10 +28,8 @@ For a guideline how to set-up everything on mac click [here](https://www.andrewh
 * knitr: make tables in Rmarkdown
 * tidyverse: universe of packages for data manipulation and plotting
 * Hmisc: statistical analysis
-* ggthemes: ggplot2 themes for plotting
-* RColorBrewer: color palettes for plotting
 
-`install.packages(c("devtools", "knitr" ,"tidyverse", "Hmisc", "ggthemes", "RColorBrewer"))`
+`install.packages(c("devtools", "knitr" ,"tidyverse", "Hmisc"))`
 
 * Installation of qpcrviia7
 
