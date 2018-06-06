@@ -2,8 +2,9 @@
 Package for qPCR analysis made especially for data obtained with Viia 7 Real-time PCR system.
 
 ## UPDATE
-* Statistics added: integrated t-test
-* Plotting time series integrated
+* Option to skip melt curves
+* Statistics added: t-test
+* Plotting time series
 * Export calculations to .xlsx file
 
 ## Website
@@ -19,7 +20,6 @@ Rmarkdown is a way to easily report your data, the example analysis that you fin
 1. Install these programs:
 * [R](https://cran.r-project.org/)
 * [Rstudio](https://www.rstudio.com/products/rstudio/download/) 
-* [Rtools](https://cran.r-project.org/bin/windows/Rtools/) for PC only. 
 
 For a guideline how to set-up everything on mac click [here](https://www.andrewheiss.com/blog/2012/04/17/install-r-rstudio-r-commander-windows-osx/).
 
@@ -33,21 +33,9 @@ For a guideline how to set-up everything on mac click [here](https://www.andrewh
 
 `install.packages(c("devtools", "knitr" ,"tidyverse", "Hmisc", "ggthemes", "RColorBrewer"))`
 
-## Installation of qpcrviia7
-
-* With devtools (when you only need the package):
+* Installation of qpcrviia7
 
   `devtools::install_github("SCIL-leuven/qpcrviia7")`
-
-* From source (if you want to help develop the package):
-  1. Download and install [git](https://git-scm.com/downloads) on your mac/pc. 
-  1. Open a new project in Rstudio and select version control. [step-by-step manual](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) 
-  1. Copy https://github.com/SCIL-leuven/qpcrviia7.git under URL and press create project.
-  1. In the top right panel, under *Build*, click *Build & Reload* (this installs the package).
-  1. Run the following code in the terminal to check out example analyses: 
-  `devtools::build_vignettes()` (Possible that this doesn't work because it requires pandoc)
-  
-  or Open **.Rmd** file in folder **vignettes** and press *Knit to html*
 
 ## Data file
 
@@ -60,7 +48,6 @@ Well | Well Position |...| Sample Name | Target Name |...| CT | CT Treshold |...
 2    | A2            |...| Sample 2    | Target 1    |...| 24 | 0.4         |...| 79  | ... | ... 
 3    | A3            |...| Sample 1    | Target 2    |...| 18 | 0.4         |...| 70  | 82  | 89  
 
-**IMPORTANT**: For the moment all these input paremeters are mandotory! The use of melt curves will become optional in the future.
 
 ## Annotation files
 
@@ -130,6 +117,4 @@ Basic steps of this workflow are:
 * Change irregularities in assign
 * Add function that calculates fold change and it's statistics
 * Add information to load your files in .Rmd examples
-* Adapt read-qpcr so that you can select which columns to keep
-* Automate functions for use without melt temperatures
-* Add statistics
+* Add more statistics
