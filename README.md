@@ -36,34 +36,40 @@ For a guideline how to set-up everything on mac click [here](https://www.andrewh
 
 ## Data file
 
-Import all the raw data as an excel file without any selections. In the basic template on the Viia7 genes are called **Target** and samples **Sample**. You call the first gene *Target 1*, the second *Target 2* and so on. You do the same for the samples. If you do this on new experiments it's the easiest to call everything Target and Sample, else you can adapt the data file. The third sheet named results from row 35 should look like this:
+*Make sure all files are .xlsx files because read_excel has problems with importing .xls files.*
+
+Import all the raw data as an excel file without any selections. We are only interested in the results, that is the third sheet. In the basic template on the Viia7, genes are **Targets** and samples **Samples**. You can find them under the Sample Name and Target Name column. Here is an example of how it should look:
 
 
 Well | Well Position |...| Sample Name | Target Name |...| CT | CT Treshold |...| Tm1 | Tm2 | Tm3 
 -----|---------------|---|-------------|-------------|---|----|-------------|---|-----|-----|-----
-1    | A1            |...| Sample 1    | Target 1    |...| 21 | 0.4         |...| 79  | ... | ... 
-2    | A2            |...| Sample 2    | Target 1    |...| 24 | 0.4         |...| 79  | ... | ... 
-3    | A3            |...| Sample 1    | Target 2    |...| 18 | 0.4         |...| 70  | 82  | 89  
+1    | A1            |...| Sample 1    | Gene 1    |...| 21 | 0.4         |...| 79  | ... | ... 
+2    | A2            |...| Sample 2    | Gene 1    |...| 24 | 0.4         |...| 79  | ... | ... 
+3    | A3            |...| Sample 1    | Gene 2    |...| 18 | 0.4         |...| 70  | 82  | 89  
 
 
 ## Annotation files
 
-Two annotation files need to be created.
+Two annotation files need to be created: one for genes and samples.
 
-One for primers, this one should have two columns: one **Target** column that resembles the names you gave to the primers. I recommend to use the basic names from the machine: Target 1, Target 2 ... The other columns are the gene names you want to analyze and if these are housekeeping genes or not.
+### Primer annotation file
 
-Target   | Gene  | HKG
----------|-------|-----
-Target 1 | Psma3 | Y
-Target 2 | Rab35 | Y
-Target 4 | Sca1  | N
+This file should have at least two columns: **Target Name**  that resembles the names you gave to the primers and **HKG** that selects the housekeeping genes with a Y and the non-housekeeping genes with a N.
 
-Another annotation file holds informatation about the samples. This also has one column named **Sample** that resembles the names you gave the samples on the machine, I recommend to name these: Sample 1, Sample 2 ... The other columns contain specific information regarding your experiment. Also specify if you  used a blanc, this will make it easy for to inscept and remove blancs. See the example here:
+Target Name | HKG
+---------|-----
+Gene 1 | Y
+Gene 2 | Y
+Gene 4 | N
 
-Sample    | Blanc |Cell_type  | Condition | Mouse     | Passage   | ...
+### Sample annotation file
+
+This annotation file is not necessary, only if you used a blanc sample or if you want to add more annotation to your samples. See the example here:
+
+Sample Name | Blanc |Cell_type  | Condition | Mouse     | Passage   | ...
 ----------|-------|-----------|-----------|-----------|-----------|------
-Sample 1  | N     |TA         | healthy   | C57BL6-1  | NA        | ...
-Sample 2  | N     |TA         | healthy   | C57BL6-2  | NA        | ...
+Sample 1  | N     |iPSC         | healthy   | C57BL6-1  | 33        | ...
+Sample 2  | N     |ESC        | healthy   | C57BL6-2  | 45        | ...
 Sample 3  | Y     |           |           |           |           |
 
 **IMPORTANT**: Don't put column names with spaces in them, always use an underscore!
