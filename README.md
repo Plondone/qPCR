@@ -10,7 +10,7 @@ Install these packages in Rstudio:
 
   `install.packages(c("devtools", "tidyverse", "Hmisc"))`
 
-* Installation of qPCR package
+Installation of qPCR package
 
   `devtools::install_github("SCIL-leuven/qPCR")`
 
