@@ -6,7 +6,7 @@ Package for qPCR analysis made especially for data obtained with Viia 7 Real-tim
 
 ## Website
 
-You can also find explanation about this package on https://scil-leuven.github.io/qpcrviia7/
+You can also find explanation about this package on https://scil-leuven.github.io/qPCR/
 
 ## Install
 
