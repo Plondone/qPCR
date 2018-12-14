@@ -1,29 +1,16 @@
-# qpcrviia7
+# qPCR analysis
 Package for qPCR analysis made especially for data obtained with Viia 7 Real-time PCR system.
 
 ## UPDATE
-* Option to skip melt curves
-* Statistics added: t-test
-* Plotting time series
-* Export calculations to .xlsx file
+* Removed unneccasary functions to simplify analysis
 
 ## Website
 
 You can also find explanation about this package on https://scil-leuven.github.io/qpcrviia7/
 
-## Prior knowledge
+## Install
 
-Make sure you have some knowledge about [R](https://cran.r-project.org/) and [tidyverse](https://www.tidyverse.org/). You can find R and tidyverse tutorials online, a good website with online courses is [Datacamp](https://www.datacamp.com/). 
-Rmarkdown is a way to easily report your data, the example analysis that you find in this repository make use of this. You can find a tutorial [here](http://rmarkdown.rstudio.com/lesson-1.html).
-
-## Requirements
-1. Install these programs:
-* [R](https://cran.r-project.org/)
-* [Rstudio](https://www.rstudio.com/products/rstudio/download/) 
-
-For a guideline how to set-up everything on mac click [here](https://www.andrewheiss.com/blog/2012/04/17/install-r-rstudio-r-commander-windows-osx/).
-
-2. Install these packages in Rstudio:
+Install these packages in Rstudio:
 * devtools: to make sure you can install this package from github
 * tidyverse: universe of packages for data manipulation and plotting
 * Hmisc: statistical analysis
@@ -32,7 +19,7 @@ For a guideline how to set-up everything on mac click [here](https://www.andrewh
 
 * Installation of qpcrviia7
 
-  `devtools::install_github("SCIL-leuven/qpcrviia7")`
+  `devtools::install_github("SCIL-leuven/qPCR")`
 
 ## Data file
 
@@ -90,10 +77,8 @@ You can also run the code chunk by chunk with Rmarkdown. Open an **.Rmd** file i
 Basic steps of this workflow are:
 1. **Read and prepare files**
   * read_qpcr()
-  * read_annotation()
   * list_bad_tech_rep()
   * qc_tech_rep()
-  * join_and_clean_qpcr()
 2. **Quality control**
   * filter_sample()
   * remove_sample()
