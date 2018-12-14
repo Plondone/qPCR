@@ -32,17 +32,7 @@ Well | Well Position |...| Sample Name | Target Name |...| CT | CT Treshold |...
 
 Two annotation files need to be created: one for genes and samples.
 
-### Primer annotation file
-
-This file should have at least two columns: **Target Name**  that resembles the names you gave to the primers and **HKG** that selects the housekeeping genes with a Y and the non-housekeeping genes with a N.
-
-Target Name | HKG
----------|-----
-Gene 1 | Y
-Gene 2 | Y
-Gene 4 | N
-
-### Sample annotation file
+### Sample file
 
 This annotation file is not necessary, only if you used a blanc sample or if you want to add more annotation to your samples. See the example here:
 
@@ -53,6 +43,16 @@ Sample 2  | N     |ESC        | healthy   | C57BL6-2  | 45        | ...
 Sample 3  | Y     |           |           |           |           |
 
 **IMPORTANT**: Don't put column names with spaces in them, always use an underscore!
+
+### Primer file
+
+This file should have at least two columns: **Target Name**  that resembles the names you gave to the primers and **HKG** that selects the housekeeping genes with a Y and the non-housekeeping genes with a N.
+
+Target Name | HKG
+---------|-----
+Gene 1 | Y
+Gene 2 | Y
+Gene 4 | N
 
 ## Workflow
 
