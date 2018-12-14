@@ -58,8 +58,6 @@ Gene 4 | N
 
 ### Rmarkdown examples
 
-Example analyses were made with [Rmarkdown](http://rmarkdown.rstudio.com/). You can open the .rmd file (in vignettes folder) to run the analysis in chunks by yourself.
-
 To check the example analyses run this code in the terminal:
 `devtools::build_vignettes()`
 
