@@ -11,13 +11,10 @@ You can also find explanation about this package on https://scil-leuven.github.i
 ## Install
 
 Install these packages in Rstudio:
-* devtools: to make sure you can install this package from github
-* tidyverse: universe of packages for data manipulation and plotting
-* Hmisc: statistical analysis
 
   `install.packages(c("devtools", "tidyverse", "Hmisc"))`
 
-* Installation of qpcrviia7
+* Installation of qPCR package
 
   `devtools::install_github("SCIL-leuven/qPCR")`
 
@@ -25,7 +22,7 @@ Install these packages in Rstudio:
 
 *Make sure all files are .xlsx files because read_excel has problems with importing .xls files.*
 
-Import all the raw data as an excel file without any selections. We are only interested in the results, that is the third sheet. In the basic template on the Viia7, genes are **Targets** and samples **Samples**. You can find them under the Sample Name and Target Name column. Here is an example of how it should look:
+Import all the raw data as an excel file without any selections. We are only interested in the results, that is the third sheet. In the basic template on the Viia7, genes are **Targets** and samples **Samples**. You can find them under the Sample Name and Target Name column.
 
 
 Well | Well Position |...| Sample Name | Target Name |...| CT | CT Treshold |...| Tm1 | Tm2 | Tm3 
