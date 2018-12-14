@@ -34,7 +34,7 @@ Two annotation files need to be created: one for genes and samples.
 
 ### Sample file
 
-This annotation file is not necessary, only if you used a blanc sample or if you want to add more annotation to your samples. See the example here:
+This annotation file only necessary if you used a blanc sample or if you want to add more annotation to your samples. Here is an example of how it should look:
 
 Sample Name | Blanc |Cell_type  | Condition | Mouse     | Passage   | ...
 ----------|-------|-----------|-----------|-----------|-----------|------
