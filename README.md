@@ -67,28 +67,28 @@ You can also run the code chunk by chunk with Rmarkdown. Open an **.Rmd** file i
 
 Basic steps of this workflow are:
 1. **Read and prepare files**
-  * read_qpcr()
-  * list_bad_tech_rep()
-  * qc_tech_rep()
+  * read_qpcr(): load qPCR file
+  * list_bad_tech_rep(): make a list of all the bad technical replicates
+  * qc_tech_rep(): remove bad technical replicates
 2. **Quality control**
   * filter_sample()
   * remove_sample()
   * split_genes()
-  * set_min_max_CT()
-  * list_double_meltcurves()
-  * remove_bad_meltcurves()
-  * qc_hkg()
-  * remove_primer()
+  * set_min_max_CT(): set a minimum and maximum CT
+  * list_double_meltcurves(): make a list of primer with bad meltcurves
+  * remove_bad_meltcurves(): remove primers with bad meltcurves
+  * qc_hkg(): check quality of your HKG
+  * remove_primer(): remove a gene
   * remove_CT()
-  * qc_mean_hkg()
+  * qc_mean_hkg(): check quality on a combination of HKG
   * remove_outlier()
 3. **Calculate Delta CT**
-  * calculate_DCT()
-  * plot_scatter()
+  * calculate_DCT(): calculates Delta CT and relative expression to HKG
+  * plot_scatter(): plot a scatter plot
 4. **Statistics**
-  * stat_t_test()
+  * stat_t_test(): perform t-test
 5. **Export**
-  * write.xlsx()
+  * write.xlsx(): export to excel file
 
 ## To do
 * Simplify quality control on housekeeping genes by implementing split function into qc_hkg()
