@@ -4,10 +4,6 @@ Package for qPCR analysis made especially for data obtained with Viia 7 Real-tim
 ## UPDATE
 * Removed unneccasary functions to simplify analysis
 
-## Website
-
-You can also find explanation about this package on https://scil-leuven.github.io/qPCR/
-
 ## Install
 
 Install these packages in Rstudio:
