@@ -69,9 +69,7 @@ Basic steps of this workflow are:
 1. Read and prepare files
 2. Quality control
 3. Normalize to housekeeping genes
-    Possibility to calculate delta CT and relative epxression to one or multiple housekeeping genes with normalize_hkg() function
 4. Fold change
-    workflow to calculate fold change against control sample
 5. Statistics
 6. Export
 
