@@ -56,8 +56,9 @@ Basic steps of this workflow are:
 2. Quality control
 3. Normalize to housekeeping genes
 4. Fold change
-5. Statistics
-6. Export
+5. Plotting
+6. Statistics
+7. Export data
 
 ## To do
 * Add information to load your files in .Rmd examples
