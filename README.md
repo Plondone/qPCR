@@ -2,7 +2,9 @@
 Package for qPCR analysis made especially for data obtained with Viia 7 Real-time PCR system.
 
 ## UPDATE
-* Removed unneccasary functions to simplify analysis
+* Simplified workflow with less functions
+* Added calculation of fold change
+* Added statistical analysis (wilcox and t.test)
 
 ## Install
 
