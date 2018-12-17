@@ -30,9 +30,9 @@ Well | Well Position | Sample Name | Target Name | CT
 3    | A3            | Sample 1    | Gene 2    | 18.98   
 
 
-## Annotation file (if necessary)
+## Annotation file
 
-Sometimes you have more variables then only one. In this case an annotation file can become handy. Here is an example of how it should look:
+To plot groups, you need to create an annotation file. Here is an example of how it should look:
 
 Sample Name | Condition | Mouse | ...
 ----------|-----------|-----------|------
