@@ -23,11 +23,11 @@ Installation of qPCR package
 Import all the raw data as an excel file without any selections. We are only interested in the results, that is the third sheet. In the basic template on the Viia7, genes are **Targets** and samples **Samples**. You can find them under the Sample Name and Target Name column.
 
 
-Well | Well Position |...| Sample Name | Target Name |...| CT | CT Treshold |...| Tm1 | Tm2 | Tm3 
------|---------------|---|-------------|-------------|---|----|-------------|---|-----|-----|-----
-1    | A1            |...| Sample 1    | Gene 1    |...| 21 | 0.4         |...| 79  | ... | ... 
-2    | A2            |...| Sample 2    | Gene 1    |...| 24 | 0.4         |...| 79  | ... | ... 
-3    | A3            |...| Sample 1    | Gene 2    |...| 18 | 0.4         |...| 70  | 82  | 89  
+Well | Well Position | Sample Name | Target Name | CT  
+-----|---------------|-------------|-------------|----
+1    | A1            | Sample 1    | Gene 1    | 21  
+2    | A2            | Sample 2    | Gene 1    | 24  
+3    | A3            | Sample 1    | Gene 2    | 18   
 
 
 ## Annotation files
