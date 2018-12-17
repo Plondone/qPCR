@@ -1,5 +1,5 @@
 # qPCR analysis
-Package for qPCR analysis made especially for data obtained with Viia 7 Real-time PCR system.
+Package for easy and fast qPCR analysis made especially for data obtained with Viia 7 Real-time PCR system.
 
 ## UPDATE
 * Simplified workflow with less functions
