@@ -51,7 +51,6 @@ You can also run the code chunk by chunk with Rmarkdown. Open an **.Rmd** file i
 
 ### Basic workflow in steps
 
-Basic steps of this workflow are:
 1. Read and prepare files
 2. Quality control
 3. Normalize to housekeeping genes
