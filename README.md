@@ -38,23 +38,11 @@ Two annotation files need to be created: one for genes and samples.
 
 This annotation file only necessary if you used a blanc sample or if you want to add more annotation to your samples. Here is an example of how it should look:
 
-Sample Name | Cell_type  | Condition | Mouse | ...
-----------|-----------|-----------|-----------|------
-Sample 1  | iPSC         | healthy   | a  | ...
-Sample 2  | ESC        | diseased   | b  | ...
-Sample 3  |            |           |       |
-
-**IMPORTANT**: Don't put column names with spaces in them, always use an underscore!
-
-### Primer file
-
-This file should have at least two columns: **Target Name**  that resembles the names you gave to the primers and **HKG** that selects the housekeeping genes with a Y and the non-housekeeping genes with a N.
-
-Target Name | HKG
----------|-----
-Gene 1 | Y
-Gene 2 | Y
-Gene 4 | N
+Sample Name | Condition | Mouse | ...
+----------|-----------|-----------|------
+Sample 1  | healthy   | a  | ...
+Sample 2  | healthy | b  | ...
+Sample 3  | diseased | a | ...
 
 ## Workflow
 
