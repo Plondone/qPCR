@@ -32,7 +32,7 @@ Well | Well Position | Sample Name | Target Name | CT
 
 ## Annotation file
 
-To plot groups, you need to create an annotation file. Here is an example of how it should look:
+To plot groups, you need to create an annotation file (this is the easiest to do in excel but it can also be a .csv or .txt file). Here is an example of how it should look:
 
 Sample Name | Condition | Mouse | ...
 ----------|-----------|-----------|------
