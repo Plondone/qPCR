@@ -25,9 +25,9 @@ Import all the raw data as an excel file without any selections. We are only int
 
 Well | Well Position | Sample Name | Target Name | CT  
 -----|---------------|-------------|-------------|----
-1    | A1            | Sample 1    | Gene 1    | 21  
-2    | A2            | Sample 2    | Gene 1    | 24  
-3    | A3            | Sample 1    | Gene 2    | 18   
+1    | A1            | Sample 1    | Gene 1    | 21.23  
+2    | A2            | Sample 2    | Gene 1    | 24.48  
+3    | A3            | Sample 1    | Gene 2    | 18.98   
 
 
 ## Annotation files
