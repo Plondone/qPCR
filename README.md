@@ -10,7 +10,7 @@ Package for easy and fast qPCR analysis made especially for data obtained with V
 
 Install these packages in Rstudio:
 
-  `install.packages(c("devtools", "tidyverse", "Hmisc"))`
+  `install.packages(c("devtools", "tidyverse"))`
 
 Installation of qPCR package
 
