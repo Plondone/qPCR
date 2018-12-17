@@ -30,13 +30,9 @@ Well | Well Position | Sample Name | Target Name | CT
 3    | A3            | Sample 1    | Gene 2    | 18.98   
 
 
-## Annotation files
+## Annotation file (if necessary)
 
-Two annotation files need to be created: one for genes and samples.
-
-### Sample file
-
-This annotation file only necessary if you used a blanc sample or if you want to add more annotation to your samples. Here is an example of how it should look:
+Sometimes you have more variables then only one. In this case an annotation file can become handy. Here is an example of how it should look:
 
 Sample Name | Condition | Mouse | ...
 ----------|-----------|-----------|------
